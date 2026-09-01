@@ -1,0 +1,93 @@
+# configs/baseline.yaml
+# Seluruh eksperimen membaca parameter dari berkas ini, bukan nilai tersebar di kode.
+# Nilai mengikuti Tabel 3.2, 3.3, 3.4, dan 3.5 pada proposal.
+
+seed: 2026                       # ulangi dengan 2027 dan 2028
+
+audio:
+  target_sr: 16000
+  seconds: 4
+
+# ---- Tabel 3.2 Parameter ekstraksi fitur LFCC ----
+lfcc:
+  # Spesifikasi Panduan Pelaksanaan Skripsi, Tahap 3:
+  # "representasi berdimensi 180 per frame", tensor [1, 180, time].
+  n_filter: 128
+  n_lfcc: 60                     # harus <= n_filter (Subbab 2.3.3)
+  log_lf: true
+  n_fft: 512
+  win_length: 400                # 25 ms pada 16 kHz
+  hop_length: 160                # 10 ms
+  window: hann                   # bawaan torchaudio, sesuai kode panduan
+  center: false
+  components: delta2             # static | delta | delta2  (ablation fitur)
+  norm_stats: manifests/norm_stats.json   # CMVN dari partisi latih; null = nonaktif
+
+# ---- Tabel 3.3 Rancangan lapisan jaringan LCNN ----
+model:
+  name: LCNN
+  embedding_dim: 256            # Panduan Tahap 4: embedding 256 dimensi
+  dropout: 0.7
+
+# ---- Tabel 3.4 Rancangan transformasi augmentasi ----
+augment:
+  enabled: false                 # false = clean-only, true = transform-aware
+  p_gain: 0.50
+  p_noise: 0.40
+  p_resample: 0.30
+  p_lowpass: 0.30
+  p_reverb: 0.25
+  gain_db: [-6.0, 6.0]
+  snr_db: [5.0, 25.0]
+  resample_rates: [8000, 11025, 12000]
+  lowpass_hz: [3400.0, 7000.0]
+  rt60_s: [0.15, 0.70]
+  disable: []                    # ablation, mis. [reverb] atau [noise]
+
+# ---- Tabel 3.5 Hiperparameter pelatihan ----
+train:
+  optimizer: adamw
+  lr: 1.0e-4                     # Panduan Tahap 6: AdamW, learning rate 1e-4
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  warmup_steps: 500
+  batch_size: 32
+  max_epochs: 100
+  patience: 10                   # early stopping berbasis EER validasi
+  grad_clip: 5.0
+  class_weight: balanced         # balanced | none
+  early_stopping_metric: val_eer
+  # --- setelan khusus perangkat (Apple M5, 10 inti CPU / 10 inti GPU, 16 GB) ---
+  workers: 0                     # terukur: 0 -> 86 berkas/s, 2 -> 47, 4 -> 33, 6 -> 25
+  val_subset: 8000               # validasi tiap epoch memakai cuplikan dev; null = dev penuh
+
+paths:
+  raw_dir: data/raw
+  manifests_dir: manifests
+  checkpoints_dir: checkpoints
+  results_dir: results
+  asv_scores_eval: data/raw/LA/ASVspoof2019_LA_asv_scores/ASVspoof2019.LA.asv.eval.gi.trl.scores.txt
+
+data:
+  train_manifest: manifests/train_protocol.csv
+  dev_manifest: manifests/dev_protocol.csv
+  eval_manifest: manifests/eval_protocol.csv
+  split_attack: manifests/split_attack.csv
+
+# ---- Tabel 3.1 Penggolongan sistem serangan ----
+attacks:
+  seen: [A01, A02, A03, A04, A05, A06]           # latih & pengembangan
+  known_eval: [A16, A19]                         # "known pada evaluasi" -> skenario S1
+  unseen: [A07, A08, A09, A10, A11, A12, A13, A14, A15, A17, A18]   # skenario S2
+
+# ---- Tabel 3.6 Skenario pengujian dan kaitannya dengan rumusan masalah ----
+scenarios:
+  S1: {nama: "Seen attack",                          kondisi: seen,      rm: "1"}
+  S2: {nama: "Unseen attack dalam dataset yang sama", kondisi: unseen,    rm: "1, 2"}
+  S3: {nama: "Stress-test transformasi",              kondisi: stress,    rm: "3"}
+  S4: {nama: "Unseen generator lintas dataset",       kondisi: eksternal, rm: "1, 2"}
+
+# ---- Tabel 3.7 Rancangan ablation ----
+ablation:
+  augmentasi: {rm: "3", konfigurasi: [noise, resample, lowpass, reverb, gain]}
+  fitur:      {rm: "4", konfigurasi: [delta, static]}

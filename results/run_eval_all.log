@@ -1,0 +1,60 @@
+=== MULAI EVALUASI 2026-08-24 23:10:03 ===
+[23:10:03] LEWAT  augmented_seed2026 S1
+[23:10:03] LEWAT  augmented_seed2026 S2
+[23:10:04] EVAL   augmented_seed2026 S3
+[00:14:19] EVAL   augmented_seed2026 S4-ITW
+[00:15:29] EVAL   augmented_seed2026 S4-WaveFake
+[00:23:04] EVAL   augmented_seed2027 S1
+[00:23:58] EVAL   augmented_seed2027 S2
+[00:27:02] EVAL   augmented_seed2027 S3
+[01:23:45] EVAL   augmented_seed2027 S4-ITW
+[01:24:56] EVAL   augmented_seed2027 S4-WaveFake
+[01:32:44] EVAL   augmented_seed2028 S1
+[01:33:36] EVAL   augmented_seed2028 S2
+[01:36:27] EVAL   augmented_seed2028 S3
+[02:35:27] EVAL   augmented_seed2028 S4-ITW
+[02:36:42] EVAL   augmented_seed2028 S4-WaveFake
+[02:44:35] EVAL   baseline_seed2026 S1
+[02:45:28] EVAL   baseline_seed2026 S2
+[02:48:20] EVAL   baseline_seed2026 S3
+[03:48:08] EVAL   baseline_seed2026 S4-ITW
+[03:49:20] EVAL   baseline_seed2026 S4-WaveFake
+[03:57:06] EVAL   baseline_seed2027 S1
+[03:57:57] EVAL   baseline_seed2027 S2
+[04:00:48] EVAL   baseline_seed2027 S3
+[04:58:44] EVAL   baseline_seed2027 S4-ITW
+[04:59:57] EVAL   baseline_seed2027 S4-WaveFake
+[05:07:54] EVAL   baseline_seed2028 S1
+[05:08:46] EVAL   baseline_seed2028 S2
+[05:11:38] EVAL   baseline_seed2028 S3
+[06:09:51] EVAL   baseline_seed2028 S4-ITW
+[06:11:04] EVAL   baseline_seed2028 S4-WaveFake
+[06:18:48] === MEMBUAT TABEL HASIL ===
+Traceback (most recent call last):
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/src/aggregate_results.py", line 81, in <module>
+    main()
+    ~~~~^^
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/src/aggregate_results.py", line 36, in main
+    df = pd.read_csv(args.results)
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 306, in _read
+    return parser.read(nrows)
+           ~~~~~~~~~~~^^^^^^^
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/.venv/lib/python3.14/site-packages/pandas/io/parsers/readers.py", line 1947, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        nrows
+        ^^^^^
+    )
+    ^
+  File "/Users/muhammadsyauqimuttaqin/Skripsi/lfcc_unseen_generator/.venv/lib/python3.14/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 215, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 832, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 897, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 868, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 885, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2084, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 13 fields in line 6, saw 16
+
+=== SELESAI EVALUASI 2026-08-25 06:18:48 ===

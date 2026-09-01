@@ -1,0 +1,4 @@
+manifest,diperiksa,gagal,lolos,terlalu_pendek
+train_protocol,25380,0,25380,
+dev_protocol,24844,0,24844,
+eval_protocol,71237,1,71236,1.0

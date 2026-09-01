@@ -1,0 +1,14 @@
+menghitung statistik dari 6580 berkas latih | dim=180 | device=mps
+  batch 20/206  frame terkumpul 254,080
+  batch 40/206  frame terkumpul 508,160
+  batch 60/206  frame terkumpul 762,240
+  batch 80/206  frame terkumpul 1,016,320
+  batch 100/206  frame terkumpul 1,270,400
+  batch 120/206  frame terkumpul 1,524,480
+  batch 140/206  frame terkumpul 1,778,560
+  batch 160/206  frame terkumpul 2,032,640
+  batch 180/206  frame terkumpul 2,286,720
+  batch 200/206  frame terkumpul 2,540,800
+tersimpan -> manifests/norm_stats.json
+  rerata: min -98.261  maks 17.704
+  simpangan baku: min 0.111  maks 46.643

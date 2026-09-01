@@ -1,0 +1,12 @@
+{
+ "in_the_wild.csv": {
+  "sha256": "a8852ba42fd95f400472cb31da45077b6b7fe1a909949cf43e6f7c286a2487b4",
+  "baris": 31779,
+  "catatan": "In-the-Wild; label dari meta.csv resmi"
+ },
+ "wavefake.csv": {
+  "sha256": "77f1c575f8325d010118195ee1397e7294d501e90d153325486a9ee2e480a71f",
+  "baris": 131083,
+  "catatan": "WaveFake (spoof) + LJSpeech-1.1 (bona fide)"
+ }
+}

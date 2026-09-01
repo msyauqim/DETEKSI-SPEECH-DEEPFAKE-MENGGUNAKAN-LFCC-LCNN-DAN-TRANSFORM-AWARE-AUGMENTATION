@@ -1,0 +1,16 @@
+# Dataset mentah -- terlalu besar (±96 GB) dan berlisensi riset,
+# tidak untuk didistribusikan ulang. Lihat data/raw/DOWNLOAD.md.
+data/
+
+# Environment Python (dibuat ulang lewat requirements.txt)
+.venv/
+__pycache__/
+*.pyc
+
+# Skor mentah per file -- besar dan bisa dibuat ulang dari checkpoint
+# lewat src/evaluate.py. Hapus baris ini kalau ingin ikut menyimpannya.
+results/scores_*.csv
+
+# artefak OS/editor
+.DS_Store
+install.log

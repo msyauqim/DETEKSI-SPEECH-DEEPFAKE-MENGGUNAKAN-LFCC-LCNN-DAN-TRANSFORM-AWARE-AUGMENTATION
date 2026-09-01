@@ -1,0 +1,26 @@
+== TRAIN baseline_seed2026 | device=mps | epoch<= 100 | batch=32 | augment=False | fitur=delta2 ==
+train=25,380 | val=6,548 (subset dev untuk hemat waktu)
+parameter model 318,722 | dim fitur 180 | bobot kelas [4.918604850769043, 0.5565789341926575]
+epoch   1 | loss 0.2572 | val_EER  0.08% | val_AUC 1.000 | lr 1.00e-04 | 360s
+   checkpoint tersimpan (EER 0.08%) -> checkpoints/baseline_seed2026.pt
+epoch   2 | loss 0.0075 | val_EER  0.06% | val_AUC 1.000 | lr 1.00e-04 | 348s
+   checkpoint tersimpan (EER 0.06%) -> checkpoints/baseline_seed2026.pt
+epoch   3 | loss 0.0036 | val_EER  0.03% | val_AUC 1.000 | lr 9.99e-05 | 348s
+   checkpoint tersimpan (EER 0.03%) -> checkpoints/baseline_seed2026.pt
+epoch   4 | loss 0.0032 | val_EER  0.03% | val_AUC 1.000 | lr 9.97e-05 | 348s
+epoch   5 | loss 0.0012 | val_EER  0.01% | val_AUC 1.000 | lr 9.95e-05 | 351s
+   checkpoint tersimpan (EER 0.01%) -> checkpoints/baseline_seed2026.pt
+epoch   6 | loss 0.0006 | val_EER  0.00% | val_AUC 1.000 | lr 9.93e-05 | 350s
+   checkpoint tersimpan (EER 0.00%) -> checkpoints/baseline_seed2026.pt
+epoch   7 | loss 0.0037 | val_EER  0.00% | val_AUC 1.000 | lr 9.90e-05 | 349s
+epoch   8 | loss 0.0006 | val_EER  0.00% | val_AUC 1.000 | lr 9.86e-05 | 349s
+epoch   9 | loss 0.0010 | val_EER  0.04% | val_AUC 1.000 | lr 9.83e-05 | 349s
+epoch  10 | loss 0.0003 | val_EER  0.06% | val_AUC 1.000 | lr 9.78e-05 | 349s
+epoch  11 | loss 0.0014 | val_EER  0.00% | val_AUC 1.000 | lr 9.73e-05 | 349s
+epoch  12 | loss 0.0018 | val_EER  0.00% | val_AUC 1.000 | lr 9.68e-05 | 350s
+epoch  13 | loss 0.0000 | val_EER  0.00% | val_AUC 1.000 | lr 9.62e-05 | 349s
+epoch  14 | loss 0.0012 | val_EER  0.00% | val_AUC 1.000 | lr 9.56e-05 | 349s
+epoch  15 | loss 0.0000 | val_EER  0.03% | val_AUC 1.000 | lr 9.49e-05 | 349s
+epoch  16 | loss 0.0000 | val_EER  0.03% | val_AUC 1.000 | lr 9.42e-05 | 350s
+early stopping (patience 10) pada epoch 16
+SELESAI baseline_seed2026 | val_EER terbaik 0.00% @ epoch 6 -> results/run_summary.csv

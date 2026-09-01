@@ -1,0 +1,57 @@
+== TRAIN augmented_seed2026 | device=mps | epoch<= 100 | batch=32 | augment=True | fitur=delta2 ==
+train=25,380 | val=6,548 (subset dev untuk hemat waktu)
+parameter model 318,722 | dim fitur 180 | bobot kelas [4.918604850769043, 0.5565789341926575]
+epoch   1 | loss 0.5606 | val_EER  1.94% | val_AUC 0.998 | lr 1.00e-04 | 382s
+   checkpoint tersimpan (EER 1.94%) -> checkpoints/augmented_seed2026.pt
+epoch   2 | loss 0.3720 | val_EER  2.94% | val_AUC 0.996 | lr 1.00e-04 | 381s
+epoch   3 | loss 0.3052 | val_EER  2.71% | val_AUC 0.997 | lr 9.99e-05 | 382s
+epoch   4 | loss 0.2831 | val_EER  2.99% | val_AUC 0.997 | lr 9.97e-05 | 381s
+epoch   5 | loss 0.2603 | val_EER  1.41% | val_AUC 0.999 | lr 9.95e-05 | 382s
+   checkpoint tersimpan (EER 1.41%) -> checkpoints/augmented_seed2026.pt
+epoch   6 | loss 0.2436 | val_EER  1.02% | val_AUC 1.000 | lr 9.93e-05 | 382s
+   checkpoint tersimpan (EER 1.02%) -> checkpoints/augmented_seed2026.pt
+epoch   7 | loss 0.2251 | val_EER  0.90% | val_AUC 1.000 | lr 9.90e-05 | 381s
+   checkpoint tersimpan (EER 0.90%) -> checkpoints/augmented_seed2026.pt
+epoch   8 | loss 0.2211 | val_EER  0.98% | val_AUC 1.000 | lr 9.86e-05 | 381s
+epoch   9 | loss 0.1990 | val_EER  0.87% | val_AUC 1.000 | lr 9.83e-05 | 383s
+   checkpoint tersimpan (EER 0.87%) -> checkpoints/augmented_seed2026.pt
+epoch  10 | loss 0.2003 | val_EER  1.14% | val_AUC 0.999 | lr 9.78e-05 | 382s
+epoch  11 | loss 0.1932 | val_EER  0.99% | val_AUC 1.000 | lr 9.73e-05 | 382s
+epoch  12 | loss 0.1916 | val_EER  0.99% | val_AUC 1.000 | lr 9.68e-05 | 381s
+epoch  13 | loss 0.1815 | val_EER  0.72% | val_AUC 1.000 | lr 9.62e-05 | 382s
+   checkpoint tersimpan (EER 0.72%) -> checkpoints/augmented_seed2026.pt
+epoch  14 | loss 0.1723 | val_EER  0.63% | val_AUC 1.000 | lr 9.56e-05 | 381s
+   checkpoint tersimpan (EER 0.63%) -> checkpoints/augmented_seed2026.pt
+epoch  15 | loss 0.1784 | val_EER  1.09% | val_AUC 1.000 | lr 9.49e-05 | 381s
+epoch  16 | loss 0.1649 | val_EER  0.67% | val_AUC 1.000 | lr 9.42e-05 | 382s
+epoch  17 | loss 0.1722 | val_EER  0.89% | val_AUC 1.000 | lr 9.35e-05 | 381s
+epoch  18 | loss 0.1611 | val_EER  1.50% | val_AUC 0.999 | lr 9.26e-05 | 382s
+epoch  19 | loss 0.1616 | val_EER  0.87% | val_AUC 1.000 | lr 9.18e-05 | 381s
+epoch  20 | loss 0.1633 | val_EER  1.42% | val_AUC 0.999 | lr 9.09e-05 | 381s
+epoch  21 | loss 0.1557 | val_EER  1.11% | val_AUC 1.000 | lr 9.00e-05 | 381s
+epoch  22 | loss 0.1593 | val_EER  1.55% | val_AUC 0.999 | lr 8.90e-05 | 382s
+epoch  23 | loss 0.1448 | val_EER  0.61% | val_AUC 1.000 | lr 8.80e-05 | 381s
+   checkpoint tersimpan (EER 0.61%) -> checkpoints/augmented_seed2026.pt
+epoch  24 | loss 0.1491 | val_EER  1.10% | val_AUC 1.000 | lr 8.70e-05 | 382s
+epoch  25 | loss 0.1529 | val_EER  1.12% | val_AUC 1.000 | lr 8.59e-05 | 382s
+epoch  26 | loss 0.1406 | val_EER  0.69% | val_AUC 1.000 | lr 8.48e-05 | 381s
+epoch  27 | loss 0.1438 | val_EER  0.58% | val_AUC 1.000 | lr 8.36e-05 | 382s
+   checkpoint tersimpan (EER 0.58%) -> checkpoints/augmented_seed2026.pt
+epoch  28 | loss 0.1381 | val_EER  0.93% | val_AUC 1.000 | lr 8.24e-05 | 382s
+epoch  29 | loss 0.1354 | val_EER  0.91% | val_AUC 1.000 | lr 8.12e-05 | 382s
+epoch  30 | loss 0.1298 | val_EER  1.18% | val_AUC 1.000 | lr 8.00e-05 | 382s
+epoch  31 | loss 0.1339 | val_EER  1.13% | val_AUC 1.000 | lr 7.87e-05 | 382s
+epoch  32 | loss 0.1240 | val_EER  0.39% | val_AUC 1.000 | lr 7.74e-05 | 381s
+   checkpoint tersimpan (EER 0.39%) -> checkpoints/augmented_seed2026.pt
+epoch  33 | loss 0.1227 | val_EER  0.92% | val_AUC 1.000 | lr 7.60e-05 | 397s
+epoch  34 | loss 0.1252 | val_EER  0.64% | val_AUC 1.000 | lr 7.47e-05 | 387s
+epoch  35 | loss 0.1202 | val_EER  0.91% | val_AUC 1.000 | lr 7.33e-05 | 391s
+epoch  36 | loss 0.1188 | val_EER  0.74% | val_AUC 1.000 | lr 7.19e-05 | 392s
+epoch  37 | loss 0.1207 | val_EER  0.72% | val_AUC 1.000 | lr 7.04e-05 | 393s
+epoch  38 | loss 0.1115 | val_EER  0.80% | val_AUC 1.000 | lr 6.90e-05 | 393s
+epoch  39 | loss 0.1117 | val_EER  0.73% | val_AUC 1.000 | lr 6.75e-05 | 397s
+epoch  40 | loss 0.1107 | val_EER  0.58% | val_AUC 1.000 | lr 6.60e-05 | 394s
+epoch  41 | loss 0.1085 | val_EER  0.70% | val_AUC 1.000 | lr 6.45e-05 | 391s
+epoch  42 | loss 0.1092 | val_EER  0.40% | val_AUC 1.000 | lr 6.30e-05 | 393s
+early stopping (patience 10) pada epoch 42
+SELESAI augmented_seed2026 | val_EER terbaik 0.39% @ epoch 32 -> results/run_summary.csv

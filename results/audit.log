@@ -1,0 +1,48 @@
+
+== AUDIT train_protocol ==
+    5,000/25,380 diperiksa
+    10,000/25,380 diperiksa
+    15,000/25,380 diperiksa
+    20,000/25,380 diperiksa
+    25,000/25,380 diperiksa
+  diperiksa 25,380 berkas -> results/audit_train_protocol.csv
+    lolos                 : 25,380
+    durasi  min 0.65 s | rerata 3.43 s | maks 13.19 s
+    laju cuplik unik: [16000]
+    jumlah kanal unik: [1]
+
+== AUDIT dev_protocol ==
+    5,000/24,844 diperiksa
+    10,000/24,844 diperiksa
+    15,000/24,844 diperiksa
+    20,000/24,844 diperiksa
+  diperiksa 24,844 berkas -> results/audit_dev_protocol.csv
+    lolos                 : 24,844
+    durasi  min 0.70 s | rerata 3.48 s | maks 11.59 s
+    laju cuplik unik: [16000]
+    jumlah kanal unik: [1]
+
+== AUDIT eval_protocol ==
+    5,000/71,237 diperiksa
+    10,000/71,237 diperiksa
+    15,000/71,237 diperiksa
+    20,000/71,237 diperiksa
+    25,000/71,237 diperiksa
+    30,000/71,237 diperiksa
+    35,000/71,237 diperiksa
+    40,000/71,237 diperiksa
+    45,000/71,237 diperiksa
+    50,000/71,237 diperiksa
+    55,000/71,237 diperiksa
+    60,000/71,237 diperiksa
+    65,000/71,237 diperiksa
+    70,000/71,237 diperiksa
+  diperiksa 71,237 berkas -> results/audit_eval_protocol.csv
+    lolos                 : 71,236
+    terlalu_pendek        : 1
+    durasi  min 0.47 s | rerata 3.11 s | maks 13.03 s
+    laju cuplik unik: [16000]
+    jumlah kanal unik: [1]
+
+ringkasan -> results/audit_ringkasan.csv
+HASIL: 1 berkas TIDAK lolos, lihat berkas audit di atas
