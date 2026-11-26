@@ -3,8 +3,8 @@
 # Subbab 3.8.3: "Setiap metrik dilaporkan sebagai rerata dan simpangan baku atas
 # tiga seed."
 #
-# Masukan : results/eval_summary.csv  (ditulis oleh evaluate.py)
-# Keluaran: results/tabel_hasil.csv   + tabel siap salin ke naskah
+# Masukan : results/v2_validasi_terpisah/eval_summary.csv  (ditulis oleh evaluate.py)
+# Keluaran: results/v2_validasi_terpisah/tabel_hasil.csv   + tabel siap salin ke naskah
 #
 #   python src/aggregate_results.py
 #   python src/aggregate_results.py --metric eer auc min_tdcf
@@ -26,9 +26,10 @@ def skema(tag):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--results", default="results/eval_summary.csv")
-    ap.add_argument("--metric", nargs="*", default=["eer", "auc", "min_tdcf"])
-    ap.add_argument("--out", default="results/tabel_hasil.csv")
+    ap.add_argument("--results", default="results/v2_validasi_terpisah/eval_summary.csv")
+    ap.add_argument("--metric", nargs="*",
+                    default=["eer", "auc", "f1", "balanced_accuracy", "min_tdcf"])
+    ap.add_argument("--out", default="results/v2_validasi_terpisah/tabel_hasil.csv")
     args = ap.parse_args()
 
     if not os.path.exists(args.results):

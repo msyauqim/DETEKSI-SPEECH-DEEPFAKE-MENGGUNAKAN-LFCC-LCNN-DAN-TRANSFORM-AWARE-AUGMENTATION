@@ -8,5 +8,19 @@
   "sha256": "77f1c575f8325d010118195ee1397e7294d501e90d153325486a9ee2e480a71f",
   "baris": 131083,
   "catatan": "WaveFake (spoof) + LJSpeech-1.1 (bona fide)"
+ },
+ "wavefake_ljspeech.csv": {
+  "sha256": "e2f64fc534c60988c04477d136a07c6706c7700492b8711424d3ad75e75f1e3b",
+  "baris": 104800,
+  "catatan": "WaveFake terbatas 7 vokoder turunan LJSpeech + LJSpeech-1.1 (bona fide); subset jsut_* dan common_voices_prompts_* dibuang karena tidak sepadan dengan kelas bona fide"
+ },
+ "split_attack.csv": {
+  "sha256": "3989511b1eec7b37115ecb7e1af0115da08017a6dac1e70b3dce3472008dc22f",
+  "baris": 121461,
+  "catatan": "split seen/unseen attack; dibekukan sebelum pelatihan (kriteria Tahap 2 Panduan)"
+ },
+ "norm_stats.json": {
+  "sha256": "25f6ef32f18c97240709606c58408170334505fc73223e008c727e47793669d1",
+  "catatan": "statistik CMVN dari partisi latih; dipakai train.py dan evaluate.py sehingga setiap skor bergantung padanya (Tahap 3)"
  }
 }

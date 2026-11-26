@@ -1,14 +1,14 @@
 # src/train.py
 # Berkas UTAMA pelatihan LFCC-LCNN, sesuai Tabel 3.5 proposal.
 #
-#   python src/train.py --config configs/baseline.yaml --seed 2026
-#   python src/train.py --config configs/baseline.yaml --augment --seed 2026
-#   python src/train.py --config configs/baseline.yaml --subset 400 --epochs 3   # uji cepat
+#   python src/train.py --config configs/v2_validasi_terpisah.yaml --seed 2026
+#   python src/train.py --config configs/v2_validasi_terpisah.yaml --augment --seed 2026
+#   python src/train.py --config configs/v2_validasi_terpisah.yaml --subset 400 --epochs 3   # uji cepat
 #   # ablation komponen augmentasi:
-#   python src/train.py --config configs/baseline.yaml --augment --disable reverb --tag no_reverb
+#   python src/train.py --config configs/v2_validasi_terpisah.yaml --augment --disable reverb --tag no_reverb
 #   # ablation komponen fitur:
-#   python src/train.py --config configs/baseline.yaml --components delta --tag static_delta
-import os, sys, json, time, math, argparse, yaml
+#   python src/train.py --config configs/v2_validasi_terpisah.yaml --components delta --tag static_delta
+import os, sys, json, time, math, random, argparse, yaml
 sys.path.insert(0, os.path.dirname(__file__))
 
 import torch
@@ -31,6 +31,13 @@ def build_lfcc(cfg, components=None):
     comp = components or lf["components"]
     if p and os.path.exists(p):
         s = json.load(open(p))
+        if s.get("components") != comp:
+            # ablation fitur: statistik khusus norm_stats_<komponen>.json di folder yang sama
+            # (ada sejak eksperimen v2; v1 tidak punya berkas ini sehingga perilakunya tetap)
+            khusus = os.path.join(os.path.dirname(p), f"norm_stats_{comp}.json")
+            if os.path.exists(khusus):
+                s = json.load(open(khusus))
+                print(f"  CMVN khusus '{comp}': {khusus}")
         if s.get("components") == comp:
             stats = s
         else:
@@ -92,7 +99,7 @@ def run_inference(model, lfcc, loader):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/baseline.yaml")
+    ap.add_argument("--config", default="configs/v2_validasi_terpisah.yaml")
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--augment", action="store_true")
     ap.add_argument("--epochs", type=int, default=None)
@@ -118,6 +125,9 @@ def main():
     epochs = args.epochs if args.epochs is not None else tr["max_epochs"]
     bs = args.batch_size if args.batch_size is not None else tr["batch_size"]
     patience = args.patience if args.patience is not None else tr.get("patience", 10)
+    # epoch minimum: sebelum epoch ini checkpoint belum boleh dipilih dan patience belum dihitung
+    # (v2; v1 tidak punya kunci ini sehingga bernilai 1 = perilaku lama)
+    min_epoch = tr.get("min_epoch", 1)
     comp = args.components or cfg["lfcc"]["components"]
     sr, seconds = cfg["audio"]["target_sr"], cfg["audio"]["seconds"]
     workers = args.workers if args.workers is not None else tr.get("workers", 0)
@@ -135,7 +145,8 @@ def main():
         tag = f"{args.tag}_seed{seed}"
 
     print(f"== TRAIN {tag} | device={DEVICE} | epoch<= {epochs} | batch={bs} "
-          f"| augment={augment} | fitur={comp} ==")
+          f"| augment={augment} | fitur={comp} =="
+          + (f" (checkpoint dipilih mulai epoch {min_epoch})" if min_epoch > 1 else ""))
     if augment and aug_cfg.get("disable"):
         print(f"   ablation augmentasi, dimatikan: {aug_cfg['disable']}")
 
@@ -170,8 +181,44 @@ def main():
     os.makedirs(cfg["paths"]["results_dir"], exist_ok=True)
     ckpt_path = os.path.join(cfg["paths"]["checkpoints_dir"], f"{tag}.pt")
 
-    best_eer, best_epoch, bad = 1.0, -1, 0
-    for epoch in range(1, epochs + 1):
+    # ---- lanjutan: keadaan akhir tiap epoch disimpan agar pelatihan yang terputus (laptop mati)
+    # dapat diteruskan dari epoch terakhir, bukan dari epoch 1. Berkas dihapus saat selesai.
+    lanjut_path = os.path.join(cfg["paths"]["checkpoints_dir"], "_lanjutan", f"{tag}.pt")
+    best_eer, best_epoch, bad, start_epoch = 1.0, -1, 0, 1
+    if os.path.exists(lanjut_path):
+        # dimuat ke CPU: state RNG wajib ByteTensor CPU; bobot dan optimizer otomatis
+        # disalin ke perangkat parameter oleh load_state_dict
+        st = torch.load(lanjut_path, map_location="cpu", weights_only=False)
+        model.load_state_dict(st["model"])
+        opt.load_state_dict(st["optimizer"])
+        if sched is not None and st.get("scheduler") is not None:
+            sched.load_state_dict(st["scheduler"])
+        best_eer, best_epoch, bad = st["best_eer"], st["best_epoch"], st["bad"]
+        start_epoch = st["epoch"] + 1
+        torch.set_rng_state(st["rng_torch"])
+        np.random.set_state(st["rng_numpy"])
+        random.setstate(st["rng_python"])
+        if st.get("rng_aug") is not None:
+            train_ds._augmenter().g.set_state(st["rng_aug"])
+        if st.get("rng_mps") is not None and hasattr(torch, "mps"):
+            torch.mps.set_rng_state(st["rng_mps"])
+        print(f"   MELANJUTKAN dari akhir epoch {st['epoch']} (terbaik {best_eer*100:.2f}% @ epoch "
+              f"{best_epoch}, patience {bad}/{patience}) <- {lanjut_path}")
+
+    def simpan_lanjutan(epoch):
+        os.makedirs(os.path.dirname(lanjut_path), exist_ok=True)
+        aug = train_ds._aug.g.get_state() if getattr(train_ds, "_aug", None) is not None \
+            and train_ds._aug.g is not None else None
+        mps = torch.mps.get_rng_state() if str(DEVICE) == "mps" else None
+        tmp = lanjut_path + ".tmp"
+        torch.save({"model": model.state_dict(), "optimizer": opt.state_dict(),
+                    "scheduler": sched.state_dict() if sched is not None else None,
+                    "epoch": epoch, "best_eer": best_eer, "best_epoch": best_epoch, "bad": bad,
+                    "rng_torch": torch.get_rng_state(), "rng_numpy": np.random.get_state(),
+                    "rng_python": random.getstate(), "rng_aug": aug, "rng_mps": mps}, tmp)
+        os.replace(tmp, lanjut_path)          # tulis-lalu-ganti: tidak rusak bila mati saat menyimpan
+
+    for epoch in range(start_epoch, epochs + 1):
         model.train()
         t0, running, nb = time.time(), 0.0, 0
         n_batch = len(train_ld)
@@ -200,6 +247,10 @@ def main():
               f"| val_AUC {m['auc']:.3f} | lr {opt.param_groups[0]['lr']:.2e} "
               f"| {time.time()-t0:.0f}s")
 
+        if epoch < min_epoch:
+            print(f"   (epoch < {min_epoch}: belum boleh dipilih sebagai checkpoint)")
+            simpan_lanjutan(epoch)
+            continue
         if m["eer"] < best_eer:
             best_eer, best_epoch, bad = m["eer"], epoch, 0
             torch.save({"state_dict": model.state_dict(), "optimizer": opt.state_dict(),
@@ -217,6 +268,10 @@ def main():
             if bad >= patience:
                 print(f"early stopping (patience {patience}) pada epoch {epoch}")
                 break
+        simpan_lanjutan(epoch)
+
+    if os.path.exists(lanjut_path):
+        os.remove(lanjut_path)                # pelatihan selesai: keadaan lanjutan tidak diperlukan
 
     summary = os.path.join(cfg["paths"]["results_dir"], "run_summary.csv")
     head = not os.path.exists(summary)

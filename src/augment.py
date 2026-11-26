@@ -125,7 +125,11 @@ STRESS_LEVELS = {
     "resample": [12000, 11025, 8000],       # laju antara
     "lowpass":  [7000.0, 5200.0, 3400.0],   # frekuensi potong Hz
     "reverb":   [0.15, 0.40, 0.70],         # RT60 detik
-    "gain":     [2.0, 4.0, 6.0],            # |dB|
+    # dB NEGATIF (atenuasi). Nilai POSITIF tidak boleh dipakai di sini: masukan
+    # sudah dinormalisasi ke puncak 1,0, sehingga penguatan apa pun akan
+    # dibatalkan kembali oleh renormalisasi di akhir apply_stress() -- diuji,
+    # selisihnya 0,000000 pada ketiga tingkat (stress test jadi inert).
+    "gain":     [-2.0, -4.0, -6.0],         # dB, atenuasi
 }
 
 

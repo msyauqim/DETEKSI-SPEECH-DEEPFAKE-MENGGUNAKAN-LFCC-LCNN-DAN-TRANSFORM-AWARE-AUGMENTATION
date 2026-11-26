@@ -14,3 +14,18 @@ results/scores_*.csv
 # artefak OS/editor
 .DS_Store
 install.log
+
+# Skor per berkas di subfolder hasil (besar; dibuat ulang lewat src/evaluate.py)
+results/**/scores_*.csv
+
+# Audio tidak didistribusikan (turunan dataset berlisensi / rekaman contoh)
+*.wav
+*.flac
+*.aiff
+*.mp3
+results/**/augment_samples/
+results/contoh_demo/
+results/rekaman_mic/
+
+# Keadaan lanjutan pelatihan (pengoptimal, penjadwal)
+checkpoints/**/_lanjutan/

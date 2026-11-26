@@ -1,0 +1,40 @@
+  CMVN khusus 'delta': manifests/v2_validasi_terpisah/norm_stats_delta.json
+== S1 Seen attack (RM 1) | abl_feat_delta_seed2027.pt (seed 2027, val_EER 5.07%, fitur delta) | device=mps ==
+serangan: ['A16', 'A19']
+seen                   EER   0.08%  AUC 1.0000  F1 0.983  balAcc 0.977  min t-DCF 0.0009   (n=17,183)
+skor -> results/v2_validasi_terpisah/scores_seen_abl_feat_delta_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'delta': manifests/v2_validasi_terpisah/norm_stats_delta.json
+== S2 Unseen attack dalam dataset yang sama (RM 1, 2) | abl_feat_delta_seed2027.pt (seed 2027, val_EER 5.07%, fitur delta) | device=mps ==
+serangan: ['A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A17', 'A18']
+unseen                 EER  23.16%  AUC 0.8389  F1 0.733  balAcc 0.768  min t-DCF 0.5206   (n=61,409)
+skor -> results/v2_validasi_terpisah/scores_unseen_abl_feat_delta_seed2027.csv
+
+EER per serangan (tiap serangan melawan seluruh bona fide):
+  A07: EER   0.02%  (n_spoof=4,914)
+  A08: EER   0.03%  (n_spoof=4,914)
+  A09: EER   0.06%  (n_spoof=4,914)
+  A10: EER  33.01%  (n_spoof=4,914)
+  A11: EER   9.04%  (n_spoof=4,914)
+  A12: EER  38.62%  (n_spoof=4,914)
+  A13: EER  47.93%  (n_spoof=4,914)
+  A14: EER  26.80%  (n_spoof=4,914)
+  A15: EER   9.14%  (n_spoof=4,914)
+  A17: EER  32.65%  (n_spoof=4,914)
+  A18: EER  22.04%  (n_spoof=4,914)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'delta': manifests/v2_validasi_terpisah/norm_stats_delta.json
+== S4 Unseen generator lintas dataset (RM 1, 2) | abl_feat_delta_seed2027.pt (seed 2027, val_EER 5.07%, fitur delta) | device=mps ==
+in_the_wild            EER  77.49%  AUC 0.2066  F1 0.413  balAcc 0.355   (n=31,779)
+skor -> results/v2_validasi_terpisah/scores_in_the_wild_abl_feat_delta_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'delta': manifests/v2_validasi_terpisah/norm_stats_delta.json
+== S4 Unseen generator lintas dataset (RM 1, 2) | abl_feat_delta_seed2027.pt (seed 2027, val_EER 5.07%, fitur delta) | device=mps ==
+wavefake_ljspeech      EER  20.36%  AUC 0.8834  F1 0.436  balAcc 0.635   (n=104,800)
+skor -> results/v2_validasi_terpisah/scores_wavefake_ljspeech_abl_feat_delta_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+INTI SELESAI

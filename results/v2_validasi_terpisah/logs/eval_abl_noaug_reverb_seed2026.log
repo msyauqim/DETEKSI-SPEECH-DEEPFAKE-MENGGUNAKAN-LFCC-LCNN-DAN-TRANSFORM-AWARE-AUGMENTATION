@@ -1,0 +1,20 @@
+== S2 Unseen attack dalam dataset yang sama (RM 1, 2) | abl_noaug_reverb_seed2026.pt (seed 2026, val_EER 7.30%, fitur delta2) | device=mps ==
+serangan: ['A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A17', 'A18']
+unseen                 EER   9.80%  AUC 0.9668  F1 0.875  balAcc 0.879  min t-DCF 0.2566   (n=61,409)
+skor -> results/v2_validasi_terpisah/scores_unseen_abl_noaug_reverb_seed2026.csv
+
+EER per serangan (tiap serangan melawan seluruh bona fide):
+  A07: EER   0.39%  (n_spoof=4,914)
+  A08: EER   2.07%  (n_spoof=4,914)
+  A09: EER   0.33%  (n_spoof=4,914)
+  A10: EER   5.31%  (n_spoof=4,914)
+  A11: EER   7.50%  (n_spoof=4,914)
+  A12: EER   2.50%  (n_spoof=4,914)
+  A13: EER   3.62%  (n_spoof=4,914)
+  A14: EER   8.89%  (n_spoof=4,914)
+  A15: EER   5.60%  (n_spoof=4,914)
+  A17: EER  21.81%  (n_spoof=4,914)
+  A18: EER  19.59%  (n_spoof=4,914)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+INTI SELESAI

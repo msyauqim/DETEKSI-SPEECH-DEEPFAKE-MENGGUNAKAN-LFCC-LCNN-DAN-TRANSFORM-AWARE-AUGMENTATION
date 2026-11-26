@@ -3,7 +3,7 @@
 # Statistik disimpan ke manifests/norm_stats.json dan dipakai train.py serta evaluate.py.
 # Menghitung dari partisi latih saja adalah syarat agar tidak terjadi kebocoran informasi.
 #
-#   python src/compute_norm_stats.py --config configs/baseline.yaml --max-files 4000
+#   python src/compute_norm_stats.py --config configs/v2_validasi_terpisah.yaml --max-files 4000
 import os, sys, json, argparse
 sys.path.insert(0, os.path.dirname(__file__))
 
@@ -18,7 +18,7 @@ from features_lfcc import LFCCFeature
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/baseline.yaml")
+    ap.add_argument("--config", default="configs/v2_validasi_terpisah.yaml")
     ap.add_argument("--max-files", type=int, default=4000,
                     help="jumlah berkas latih yang dicuplik untuk menaksir statistik")
     ap.add_argument("--batch-size", type=int, default=32)

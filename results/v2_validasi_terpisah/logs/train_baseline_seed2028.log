@@ -1,0 +1,205 @@
+== TRAIN baseline_seed2028 | device=mps | epoch<= 100 | batch=32 | augment=False | fitur=delta2 == (checkpoint dipilih mulai epoch 5)
+train=17,780 | val=6,548 (subset dev untuk hemat waktu)
+parameter model 318,722 | dim fitur 180 | bobot kelas [3.4457364082336426, 0.5848684310913086]
+   epoch   1 [  55/555]   9% | loss 0.6856 |  72.9 berkas/s | sisa ~ 3.7 m
+   epoch   1 [ 110/555]  19% | loss 0.6710 |  73.8 berkas/s | sisa ~ 3.2 m
+   epoch   1 [ 165/555]  29% | loss 0.6421 |  73.1 berkas/s | sisa ~ 2.8 m
+   epoch   1 [ 220/555]  39% | loss 0.5741 |  72.8 berkas/s | sisa ~ 2.5 m
+   epoch   1 [ 275/555]  49% | loss 0.4936 |  72.3 berkas/s | sisa ~ 2.1 m
+   epoch   1 [ 330/555]  59% | loss 0.4270 |  72.1 berkas/s | sisa ~ 1.7 m
+   epoch   1 [ 385/555]  69% | loss 0.3745 |  71.8 berkas/s | sisa ~ 1.3 m
+   epoch   1 [ 440/555]  79% | loss 0.3325 |  71.9 berkas/s | sisa ~ 0.9 m
+   epoch   1 [ 495/555]  89% | loss 0.2989 |  72.1 berkas/s | sisa ~ 0.4 m
+   epoch   1 [ 550/555]  99% | loss 0.2714 |  72.5 berkas/s | sisa ~ 0.0 m
+   epoch   1 [ 555/555] 100% | loss 0.2691 |  72.6 berkas/s | sisa ~ 0.0 m
+   epoch   1 validasi ...
+epoch   1 | loss 0.2691 | val_EER  9.86% | val_AUC 0.964 | lr 1.00e-04 | 262s
+   (epoch < 5: belum boleh dipilih sebagai checkpoint)
+   epoch   2 [  55/555]   9% | loss 0.0118 |  75.5 berkas/s | sisa ~ 3.5 m
+   epoch   2 [ 110/555]  19% | loss 0.0104 |  75.7 berkas/s | sisa ~ 3.1 m
+   epoch   2 [ 165/555]  29% | loss 0.0119 |  76.0 berkas/s | sisa ~ 2.7 m
+   epoch   2 [ 220/555]  39% | loss 0.0108 |  76.4 berkas/s | sisa ~ 2.3 m
+   epoch   2 [ 275/555]  49% | loss 0.0104 |  76.3 berkas/s | sisa ~ 2.0 m
+   epoch   2 [ 330/555]  59% | loss 0.0099 |  76.0 berkas/s | sisa ~ 1.6 m
+   epoch   2 [ 385/555]  69% | loss 0.0102 |  76.0 berkas/s | sisa ~ 1.2 m
+   epoch   2 [ 440/555]  79% | loss 0.0099 |  75.7 berkas/s | sisa ~ 0.8 m
+   epoch   2 [ 495/555]  89% | loss 0.0095 |  74.9 berkas/s | sisa ~ 0.4 m
+   epoch   2 [ 550/555]  99% | loss 0.0088 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch   2 [ 555/555] 100% | loss 0.0088 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch   2 validasi ...
+epoch   2 | loss 0.0088 | val_EER  9.05% | val_AUC 0.967 | lr 1.00e-04 | 255s
+   (epoch < 5: belum boleh dipilih sebagai checkpoint)
+   epoch   3 [  55/555]   9% | loss 0.0048 |  76.9 berkas/s | sisa ~ 3.5 m
+   epoch   3 [ 110/555]  19% | loss 0.0034 |  77.4 berkas/s | sisa ~ 3.1 m
+   epoch   3 [ 165/555]  29% | loss 0.0030 |  76.9 berkas/s | sisa ~ 2.7 m
+   epoch   3 [ 220/555]  39% | loss 0.0036 |  75.5 berkas/s | sisa ~ 2.4 m
+   epoch   3 [ 275/555]  49% | loss 0.0035 |  74.7 berkas/s | sisa ~ 2.0 m
+   epoch   3 [ 330/555]  59% | loss 0.0031 |  74.5 berkas/s | sisa ~ 1.6 m
+   epoch   3 [ 385/555]  69% | loss 0.0036 |  74.1 berkas/s | sisa ~ 1.2 m
+   epoch   3 [ 440/555]  79% | loss 0.0034 |  73.8 berkas/s | sisa ~ 0.8 m
+   epoch   3 [ 495/555]  89% | loss 0.0032 |  73.5 berkas/s | sisa ~ 0.4 m
+   epoch   3 [ 550/555]  99% | loss 0.0030 |  73.0 berkas/s | sisa ~ 0.0 m
+   epoch   3 [ 555/555] 100% | loss 0.0030 |  72.9 berkas/s | sisa ~ 0.0 m
+   epoch   3 validasi ...
+epoch   3 | loss 0.0030 | val_EER  7.53% | val_AUC 0.974 | lr 9.99e-05 | 262s
+   (epoch < 5: belum boleh dipilih sebagai checkpoint)
+   epoch   4 [  55/555]   9% | loss 0.0023 |  68.8 berkas/s | sisa ~ 3.9 m
+   epoch   4 [ 110/555]  19% | loss 0.0019 |  70.7 berkas/s | sisa ~ 3.4 m
+   epoch   4 [ 165/555]  29% | loss 0.0015 |  70.8 berkas/s | sisa ~ 2.9 m
+   epoch   4 [ 220/555]  39% | loss 0.0014 |  70.8 berkas/s | sisa ~ 2.5 m
+   epoch   4 [ 275/555]  49% | loss 0.0013 |  71.0 berkas/s | sisa ~ 2.1 m
+   epoch   4 [ 330/555]  59% | loss 0.0012 |  71.6 berkas/s | sisa ~ 1.7 m
+   epoch   4 [ 385/555]  69% | loss 0.0011 |  71.9 berkas/s | sisa ~ 1.3 m
+   epoch   4 [ 440/555]  79% | loss 0.0012 |  71.7 berkas/s | sisa ~ 0.9 m
+   epoch   4 [ 495/555]  89% | loss 0.0012 |  72.3 berkas/s | sisa ~ 0.4 m
+   epoch   4 [ 550/555]  99% | loss 0.0015 |  72.7 berkas/s | sisa ~ 0.0 m
+   epoch   4 [ 555/555] 100% | loss 0.0015 |  72.8 berkas/s | sisa ~ 0.0 m
+   epoch   4 validasi ...
+epoch   4 | loss 0.0015 | val_EER  9.76% | val_AUC 0.962 | lr 9.98e-05 | 261s
+   (epoch < 5: belum boleh dipilih sebagai checkpoint)
+   epoch   5 [  55/555]   9% | loss 0.0011 |  75.3 berkas/s | sisa ~ 3.5 m
+   epoch   5 [ 110/555]  19% | loss 0.0007 |  74.7 berkas/s | sisa ~ 3.2 m
+   epoch   5 [ 165/555]  29% | loss 0.0006 |  75.4 berkas/s | sisa ~ 2.8 m
+   epoch   5 [ 220/555]  39% | loss 0.0005 |  74.9 berkas/s | sisa ~ 2.4 m
+   epoch   5 [ 275/555]  49% | loss 0.0004 |  75.2 berkas/s | sisa ~ 2.0 m
+   epoch   5 [ 330/555]  59% | loss 0.0004 |  75.4 berkas/s | sisa ~ 1.6 m
+   epoch   5 [ 385/555]  69% | loss 0.0004 |  75.6 berkas/s | sisa ~ 1.2 m
+   epoch   5 [ 440/555]  79% | loss 0.0004 |  75.7 berkas/s | sisa ~ 0.8 m
+   epoch   5 [ 495/555]  89% | loss 0.0004 |  75.8 berkas/s | sisa ~ 0.4 m
+   epoch   5 [ 550/555]  99% | loss 0.0004 |  75.7 berkas/s | sisa ~ 0.0 m
+   epoch   5 [ 555/555] 100% | loss 0.0004 |  75.7 berkas/s | sisa ~ 0.0 m
+   epoch   5 validasi ...
+epoch   5 | loss 0.0004 | val_EER  6.88% | val_AUC 0.980 | lr 9.96e-05 | 251s
+   checkpoint tersimpan (EER 6.88%) -> checkpoints/v2_validasi_terpisah/baseline_seed2028.pt
+   epoch   6 [  55/555]   9% | loss 0.0005 |  75.9 berkas/s | sisa ~ 3.5 m
+   epoch   6 [ 110/555]  19% | loss 0.0003 |  76.3 berkas/s | sisa ~ 3.1 m
+   epoch   6 [ 165/555]  29% | loss 0.0003 |  76.4 berkas/s | sisa ~ 2.7 m
+   epoch   6 [ 220/555]  39% | loss 0.0003 |  75.1 berkas/s | sisa ~ 2.4 m
+   epoch   6 [ 275/555]  49% | loss 0.0002 |  75.5 berkas/s | sisa ~ 2.0 m
+   epoch   6 [ 330/555]  59% | loss 0.0002 |  75.8 berkas/s | sisa ~ 1.6 m
+   epoch   6 [ 385/555]  69% | loss 0.0002 |  76.0 berkas/s | sisa ~ 1.2 m
+   epoch   6 [ 440/555]  79% | loss 0.0002 |  76.2 berkas/s | sisa ~ 0.8 m
+   epoch   6 [ 495/555]  89% | loss 0.0004 |  76.3 berkas/s | sisa ~ 0.4 m
+   epoch   6 [ 550/555]  99% | loss 0.0011 |  76.4 berkas/s | sisa ~ 0.0 m
+   epoch   6 [ 555/555] 100% | loss 0.0011 |  76.4 berkas/s | sisa ~ 0.0 m
+   epoch   6 validasi ...
+epoch   6 | loss 0.0011 | val_EER 12.11% | val_AUC 0.946 | lr 9.93e-05 | 251s
+   epoch   7 [  55/555]   9% | loss 0.0026 |  70.6 berkas/s | sisa ~ 3.8 m
+   epoch   7 [ 110/555]  19% | loss 0.0015 |  71.5 berkas/s | sisa ~ 3.3 m
+   epoch   7 [ 165/555]  29% | loss 0.0010 |  71.7 berkas/s | sisa ~ 2.9 m
+   epoch   7 [ 220/555]  39% | loss 0.0008 |  72.4 berkas/s | sisa ~ 2.5 m
+   epoch   7 [ 275/555]  49% | loss 0.0010 |  73.2 berkas/s | sisa ~ 2.0 m
+   epoch   7 [ 330/555]  59% | loss 0.0022 |  73.7 berkas/s | sisa ~ 1.6 m
+   epoch   7 [ 385/555]  69% | loss 0.0019 |  74.1 berkas/s | sisa ~ 1.2 m
+   epoch   7 [ 440/555]  79% | loss 0.0018 |  74.4 berkas/s | sisa ~ 0.8 m
+   epoch   7 [ 495/555]  89% | loss 0.0018 |  74.4 berkas/s | sisa ~ 0.4 m
+   epoch   7 [ 550/555]  99% | loss 0.0018 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch   7 [ 555/555] 100% | loss 0.0018 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch   7 validasi ...
+epoch   7 | loss 0.0018 | val_EER 11.35% | val_AUC 0.953 | lr 9.91e-05 | 255s
+   epoch   8 [  55/555]   9% | loss 0.0013 |  76.1 berkas/s | sisa ~ 3.5 m
+   epoch   8 [ 110/555]  19% | loss 0.0009 |  75.5 berkas/s | sisa ~ 3.1 m
+   epoch   8 [ 165/555]  29% | loss 0.0011 |  76.0 berkas/s | sisa ~ 2.7 m
+   epoch   8 [ 220/555]  39% | loss 0.0008 |  76.4 berkas/s | sisa ~ 2.3 m
+   epoch   8 [ 275/555]  49% | loss 0.0007 |  76.2 berkas/s | sisa ~ 2.0 m
+   epoch   8 [ 330/555]  59% | loss 0.0006 |  76.4 berkas/s | sisa ~ 1.6 m
+   epoch   8 [ 385/555]  69% | loss 0.0012 |  76.5 berkas/s | sisa ~ 1.2 m
+   epoch   8 [ 440/555]  79% | loss 0.0011 |  76.5 berkas/s | sisa ~ 0.8 m
+   epoch   8 [ 495/555]  89% | loss 0.0010 |  76.5 berkas/s | sisa ~ 0.4 m
+   epoch   8 [ 550/555]  99% | loss 0.0010 |  76.5 berkas/s | sisa ~ 0.0 m
+   epoch   8 [ 555/555] 100% | loss 0.0009 |  76.5 berkas/s | sisa ~ 0.0 m
+   epoch   8 validasi ...
+epoch   8 | loss 0.0009 | val_EER 14.45% | val_AUC 0.930 | lr 9.87e-05 | 249s
+   epoch   9 [  55/555]   9% | loss 0.0001 |  75.2 berkas/s | sisa ~ 3.5 m
+   epoch   9 [ 110/555]  19% | loss 0.0001 |  75.9 berkas/s | sisa ~ 3.1 m
+   epoch   9 [ 165/555]  29% | loss 0.0001 |  76.1 berkas/s | sisa ~ 2.7 m
+   epoch   9 [ 220/555]  39% | loss 0.0001 |  75.7 berkas/s | sisa ~ 2.4 m
+   epoch   9 [ 275/555]  49% | loss 0.0001 |  74.9 berkas/s | sisa ~ 2.0 m
+   epoch   9 [ 330/555]  59% | loss 0.0001 |  74.7 berkas/s | sisa ~ 1.6 m
+   epoch   9 [ 385/555]  69% | loss 0.0001 |  74.3 berkas/s | sisa ~ 1.2 m
+   epoch   9 [ 440/555]  79% | loss 0.0001 |  74.0 berkas/s | sisa ~ 0.8 m
+   epoch   9 [ 495/555]  89% | loss 0.0001 |  73.9 berkas/s | sisa ~ 0.4 m
+   epoch   9 [ 550/555]  99% | loss 0.0001 |  73.5 berkas/s | sisa ~ 0.0 m
+   epoch   9 [ 555/555] 100% | loss 0.0001 |  73.5 berkas/s | sisa ~ 0.0 m
+   epoch   9 validasi ...
+epoch   9 | loss 0.0001 | val_EER 14.18% | val_AUC 0.931 | lr 9.84e-05 | 260s
+   epoch  10 [  55/555]   9% | loss 0.0001 |  72.5 berkas/s | sisa ~ 3.7 m
+   epoch  10 [ 110/555]  19% | loss 0.0001 |  72.2 berkas/s | sisa ~ 3.3 m
+   epoch  10 [ 165/555]  29% | loss 0.0001 |  72.6 berkas/s | sisa ~ 2.9 m
+   epoch  10 [ 220/555]  39% | loss 0.0000 |  72.7 berkas/s | sisa ~ 2.5 m
+   epoch  10 [ 275/555]  49% | loss 0.0000 |  72.9 berkas/s | sisa ~ 2.0 m
+   epoch  10 [ 330/555]  59% | loss 0.0000 |  31.3 berkas/s | sisa ~ 3.8 m
+   epoch  10 [ 385/555]  69% | loss 0.0000 |  31.6 berkas/s | sisa ~ 2.9 m
+   epoch  10 [ 440/555]  79% | loss 0.0000 |  29.0 berkas/s | sisa ~ 2.1 m
+   epoch  10 [ 495/555]  89% | loss 0.0000 |  18.9 berkas/s | sisa ~ 1.7 m
+   epoch  10 [ 550/555]  99% | loss 0.0000 |  19.6 berkas/s | sisa ~ 0.1 m
+   epoch  10 [ 555/555] 100% | loss 0.0000 |  19.6 berkas/s | sisa ~ 0.0 m
+   epoch  10 validasi ...
+epoch  10 | loss 0.0000 | val_EER 14.26% | val_AUC 0.930 | lr 9.79e-05 | 965s
+   epoch  11 [  55/555]   9% | loss 0.0000 |   1.8 berkas/s | sisa ~145.2 m
+   epoch  11 [ 110/555]  19% | loss 0.0000 |   2.9 berkas/s | sisa ~82.5 m
+   epoch  11 [ 165/555]  29% | loss 0.0000 |   1.6 berkas/s | sisa ~132.2 m
+   epoch  11 [ 220/555]  39% | loss 0.0000 |   1.6 berkas/s | sisa ~110.5 m
+   epoch  11 [ 275/555]  49% | loss 0.0000 |   1.9 berkas/s | sisa ~77.7 m
+   epoch  11 [ 330/555]  59% | loss 0.0000 |   2.2 berkas/s | sisa ~54.9 m
+   epoch  11 [ 385/555]  69% | loss 0.0000 |   2.2 berkas/s | sisa ~40.4 m
+   epoch  11 [ 440/555]  79% | loss 0.0000 |   2.3 berkas/s | sisa ~26.3 m
+   epoch  11 [ 495/555]  89% | loss 0.0000 |   2.6 berkas/s | sisa ~12.3 m
+   epoch  11 [ 550/555]  99% | loss 0.0000 |   2.9 berkas/s | sisa ~ 0.9 m
+   epoch  11 [ 555/555] 100% | loss 0.0000 |   2.9 berkas/s | sisa ~ 0.0 m
+   epoch  11 validasi ...
+epoch  11 | loss 0.0000 | val_EER 12.04% | val_AUC 0.947 | lr 9.75e-05 | 6116s
+   epoch  12 [  55/555]   9% | loss 0.0000 |  75.2 berkas/s | sisa ~ 3.5 m
+   epoch  12 [ 110/555]  19% | loss 0.0000 |  71.6 berkas/s | sisa ~ 3.3 m
+   epoch  12 [ 165/555]  29% | loss 0.0000 |  72.8 berkas/s | sisa ~ 2.9 m
+   epoch  12 [ 220/555]  39% | loss 0.0000 |  73.2 berkas/s | sisa ~ 2.4 m
+   epoch  12 [ 275/555]  49% | loss 0.0000 |  73.6 berkas/s | sisa ~ 2.0 m
+   epoch  12 [ 330/555]  59% | loss 0.0000 |  73.9 berkas/s | sisa ~ 1.6 m
+   epoch  12 [ 385/555]  69% | loss 0.0000 |  74.0 berkas/s | sisa ~ 1.2 m
+   epoch  12 [ 440/555]  79% | loss 0.0000 |  74.1 berkas/s | sisa ~ 0.8 m
+   epoch  12 [ 495/555]  89% | loss 0.0000 |  74.1 berkas/s | sisa ~ 0.4 m
+   epoch  12 [ 550/555]  99% | loss 0.0000 |  74.2 berkas/s | sisa ~ 0.0 m
+   epoch  12 [ 555/555] 100% | loss 0.0000 |  74.2 berkas/s | sisa ~ 0.0 m
+   epoch  12 validasi ...
+epoch  12 | loss 0.0000 | val_EER 13.03% | val_AUC 0.939 | lr 9.69e-05 | 257s
+   epoch  13 [  55/555]   9% | loss 0.0000 |  74.0 berkas/s | sisa ~ 3.6 m
+   epoch  13 [ 110/555]  19% | loss 0.0000 |  74.5 berkas/s | sisa ~ 3.2 m
+   epoch  13 [ 165/555]  29% | loss 0.0000 |  74.6 berkas/s | sisa ~ 2.8 m
+   epoch  13 [ 220/555]  39% | loss 0.0039 |  74.6 berkas/s | sisa ~ 2.4 m
+   epoch  13 [ 275/555]  49% | loss 0.0043 |  74.6 berkas/s | sisa ~ 2.0 m
+   epoch  13 [ 330/555]  59% | loss 0.0037 |  74.6 berkas/s | sisa ~ 1.6 m
+   epoch  13 [ 385/555]  69% | loss 0.0032 |  74.5 berkas/s | sisa ~ 1.2 m
+   epoch  13 [ 440/555]  79% | loss 0.0035 |  74.5 berkas/s | sisa ~ 0.8 m
+   epoch  13 [ 495/555]  89% | loss 0.0035 |  74.5 berkas/s | sisa ~ 0.4 m
+   epoch  13 [ 550/555]  99% | loss 0.0033 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch  13 [ 555/555] 100% | loss 0.0032 |  74.6 berkas/s | sisa ~ 0.0 m
+   epoch  13 validasi ...
+epoch  13 | loss 0.0032 | val_EER 16.84% | val_AUC 0.910 | lr 9.64e-05 | 256s
+   epoch  14 [  55/555]   9% | loss 0.0003 |  73.6 berkas/s | sisa ~ 3.6 m
+   epoch  14 [ 110/555]  19% | loss 0.0002 |  74.0 berkas/s | sisa ~ 3.2 m
+   epoch  14 [ 165/555]  29% | loss 0.0008 |  74.3 berkas/s | sisa ~ 2.8 m
+   epoch  14 [ 220/555]  39% | loss 0.0014 |  74.4 berkas/s | sisa ~ 2.4 m
+   epoch  14 [ 275/555]  49% | loss 0.0015 |  74.4 berkas/s | sisa ~ 2.0 m
+   epoch  14 [ 330/555]  59% | loss 0.0013 |  74.3 berkas/s | sisa ~ 1.6 m
+   epoch  14 [ 385/555]  69% | loss 0.0012 |  74.1 berkas/s | sisa ~ 1.2 m
+   epoch  14 [ 440/555]  79% | loss 0.0010 |  74.2 berkas/s | sisa ~ 0.8 m
+   epoch  14 [ 495/555]  89% | loss 0.0009 |  74.2 berkas/s | sisa ~ 0.4 m
+   epoch  14 [ 550/555]  99% | loss 0.0008 |  74.2 berkas/s | sisa ~ 0.0 m
+   epoch  14 [ 555/555] 100% | loss 0.0008 |  74.2 berkas/s | sisa ~ 0.0 m
+   epoch  14 validasi ...
+epoch  14 | loss 0.0008 | val_EER 11.56% | val_AUC 0.952 | lr 9.58e-05 | 257s
+   epoch  15 [  55/555]   9% | loss 0.0000 |  74.6 berkas/s | sisa ~ 3.6 m
+   epoch  15 [ 110/555]  19% | loss 0.0000 |  74.6 berkas/s | sisa ~ 3.2 m
+   epoch  15 [ 165/555]  29% | loss 0.0000 |  74.5 berkas/s | sisa ~ 2.8 m
+   epoch  15 [ 220/555]  39% | loss 0.0000 |  74.4 berkas/s | sisa ~ 2.4 m
+   epoch  15 [ 275/555]  49% | loss 0.0000 |  74.4 berkas/s | sisa ~ 2.0 m
+   epoch  15 [ 330/555]  59% | loss 0.0000 |  74.4 berkas/s | sisa ~ 1.6 m
+   epoch  15 [ 385/555]  69% | loss 0.0000 |  74.3 berkas/s | sisa ~ 1.2 m
+   epoch  15 [ 440/555]  79% | loss 0.0000 |  74.4 berkas/s | sisa ~ 0.8 m
+   epoch  15 [ 495/555]  89% | loss 0.0000 |  74.4 berkas/s | sisa ~ 0.4 m
+   epoch  15 [ 550/555]  99% | loss 0.0000 |  74.3 berkas/s | sisa ~ 0.0 m
+   epoch  15 [ 555/555] 100% | loss 0.0000 |  74.3 berkas/s | sisa ~ 0.0 m
+   epoch  15 validasi ...
+epoch  15 | loss 0.0000 | val_EER 11.24% | val_AUC 0.958 | lr 9.51e-05 | 257s
+early stopping (patience 10) pada epoch 15
+SELESAI baseline_seed2028 | val_EER terbaik 6.88% @ epoch 5 -> results/v2_validasi_terpisah/run_summary.csv

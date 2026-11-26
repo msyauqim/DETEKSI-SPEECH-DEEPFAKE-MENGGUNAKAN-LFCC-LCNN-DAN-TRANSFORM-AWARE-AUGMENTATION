@@ -1,0 +1,21 @@
+attack_id,peran,kelas,n_berkas,n_speaker,partisi
+-,bonafide,bona fide,12483,107,dev;eval;train
+A01,seen,spoof,7516,30,dev;train
+A02,seen,spoof,7516,30,dev;train
+A03,seen,spoof,7516,30,dev;train
+A04,seen,spoof,7516,30,dev;train
+A05,seen,spoof,7516,30,dev;train
+A06,seen,spoof,7516,30,dev;train
+A07,unseen,spoof,4914,48,eval
+A08,unseen,spoof,4914,48,eval
+A09,unseen,spoof,4914,48,eval
+A10,unseen,spoof,4914,48,eval
+A11,unseen,spoof,4914,48,eval
+A12,unseen,spoof,4914,48,eval
+A13,unseen,spoof,4914,48,eval
+A14,unseen,spoof,4914,48,eval
+A15,unseen,spoof,4914,48,eval
+A16,unseen,spoof,4914,48,eval
+A17,unseen,spoof,4914,48,eval
+A18,unseen,spoof,4914,48,eval
+A19,unseen,spoof,4914,48,eval

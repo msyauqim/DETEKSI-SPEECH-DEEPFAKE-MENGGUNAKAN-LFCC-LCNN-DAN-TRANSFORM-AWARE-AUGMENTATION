@@ -49,8 +49,12 @@ def score(model, lfcc, manifest, sr, seconds, bs, workers, attacks=None, stress=
 
 
 def report(df, name, asv_file=None, threshold=None):
-    m = compute_metrics(df.label.values, df.fake_score.values,
-                        threshold=0.0 if threshold is None else threshold)
+    # val_threshold dari train.py dihitung pada skala -cm_score (tak terbatas),
+    # sedangkan fake_score = sigmoid(-cm_score) yang rentangnya [0, 1]. Ambang
+    # harus dipetakan lewat sigmoid agar skalanya sepadan; tanpa ini F1 dan
+    # balanced accuracy jadi degenerate (semua berkas jatuh ke satu kelas).
+    thr = 0.5 if threshold is None else float(1.0 / (1.0 + np.exp(-float(threshold))))
+    m = compute_metrics(df.label.values, df.fake_score.values, threshold=thr)
     t = min_tdcf_from_manifest(df.label.values, df.fake_score.values, asv_file)
     line = (f"{name:<22} EER {m['eer']*100:6.2f}%  AUC {m['auc']:.4f}  F1 {m['f1']:.3f}  "
             f"balAcc {m['balanced_accuracy']:.3f}")
@@ -71,6 +75,11 @@ def main():
     ap.add_argument("--per-attack", action="store_true")
     ap.add_argument("--stress-kind", nargs="*", default=None,
                     help="batasi jenis transformasi pada S3")
+    ap.add_argument("--attacks", choices=["unseen", "known_eval"], default="unseen",
+                    help="himpunan serangan untuk S3. Panduan Tahap 7 meminta "
+                         "stress-test pada seen MAUPUN unseen; 'seen' pada partisi "
+                         "eval berarti known_eval (A16, A19) karena A01-A06 tidak "
+                         "ada di partisi eval")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
@@ -85,6 +94,7 @@ def main():
                  dropout=cfg["model"].get("dropout", 0.7)).to(DEVICE)
     model.load_state_dict(ck["state_dict"])
     seed = ck.get("seed", "?")
+    tag = ck.get("tag", os.path.splitext(os.path.basename(args.checkpoint))[0])
     thr = ck.get("val_threshold")
     asv_file = cfg["paths"].get("asv_scores_eval")
 
@@ -96,6 +106,8 @@ def main():
 
     eval_manifest = cfg["data"].get("eval_manifest", "manifests/eval_protocol.csv")
     results_dir = cfg["paths"]["results_dir"]
+    if results_dir.rstrip("/") == "results":        # checkpoint v1 menyimpan jalur lama
+        results_dir = "results/v1_pembagian_lama"
     os.makedirs(results_dir, exist_ok=True)
     rows_summary = []
 
@@ -108,7 +120,7 @@ def main():
                    attacks=attacks)
         m = report(df, cond, asv_file, thr)
         rows_summary.append({"scenario": args.scenario, "condition": cond, **m})
-        out = args.out or os.path.join(results_dir, f"scores_{cond}_seed{seed}.csv")
+        out = args.out or os.path.join(results_dir, f"scores_{cond}_{tag}.csv")
         df.assign(condition=cond, seed=seed).to_csv(out, index=False)
         print(f"skor -> {out}")
 
@@ -124,20 +136,23 @@ def main():
 
     # ------------------------------------------------ S3
     elif args.scenario == "S3":
-        attacks = cfg["attacks"]["unseen"]
+        attacks = cfg["attacks"][args.attacks]
         kinds = args.stress_kind or list(STRESS_LEVELS.keys())
-        print(f"serangan: unseen | transformasi: {kinds}\n")
+        # Nama kondisi diberi awalan "seen_" bila bukan unseen, supaya baris hasil
+        # tidak bertabrakan dengan hasil S3-unseen yang sudah ada.
+        pfx = "" if args.attacks == "unseen" else "seen_"
+        print(f"serangan: {args.attacks} ({attacks}) | transformasi: {kinds}\n")
         df0 = score(model, lfcc, eval_manifest, sr, seconds, args.batch_size,
                     args.workers, attacks=attacks)
         m0 = report(df0, "tanpa transformasi", asv_file, thr)
-        rows_summary.append({"scenario": "S3", "condition": "clean", "kind": "-",
+        rows_summary.append({"scenario": "S3", "condition": f"{pfx}clean", "kind": "-",
                              "level": -1, "param": "-", **m0})
         for kind in kinds:
             for lv, val in enumerate(STRESS_LEVELS[kind]):
                 d = score(model, lfcc, eval_manifest, sr, seconds, args.batch_size,
                           args.workers, attacks=attacks, stress=(kind, lv))
                 m = report(d, f"{kind} L{lv+1} ({val})", asv_file, thr)
-                rows_summary.append({"scenario": "S3", "condition": f"{kind}_L{lv+1}",
+                rows_summary.append({"scenario": "S3", "condition": f"{pfx}{kind}_L{lv+1}",
                                      "kind": kind, "level": lv + 1, "param": val, **m})
 
     # ------------------------------------------------ S4
@@ -148,7 +163,7 @@ def main():
         df = score(model, lfcc, args.manifest, sr, seconds, args.batch_size, args.workers)
         m = report(df, cond, None, thr)           # min t-DCF tidak berlaku di luar ASVspoof
         rows_summary.append({"scenario": "S4", "condition": cond, **m})
-        out = args.out or os.path.join(results_dir, f"scores_{cond}_seed{seed}.csv")
+        out = args.out or os.path.join(results_dir, f"scores_{cond}_{tag}.csv")
         df.assign(condition=cond, seed=seed).to_csv(out, index=False)
         print(f"skor -> {out}")
 

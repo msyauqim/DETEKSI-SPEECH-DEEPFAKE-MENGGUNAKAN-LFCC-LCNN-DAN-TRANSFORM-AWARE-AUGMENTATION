@@ -1,0 +1,40 @@
+  CMVN khusus 'static': manifests/v2_validasi_terpisah/norm_stats_static.json
+== S1 Seen attack (RM 1) | abl_feat_static_seed2027.pt (seed 2027, val_EER 4.32%, fitur static) | device=mps ==
+serangan: ['A16', 'A19']
+seen                   EER   0.01%  AUC 1.0000  F1 0.990  balAcc 0.986  min t-DCF 0.0001   (n=17,183)
+skor -> results/v2_validasi_terpisah/scores_seen_abl_feat_static_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'static': manifests/v2_validasi_terpisah/norm_stats_static.json
+== S2 Unseen attack dalam dataset yang sama (RM 1, 2) | abl_feat_static_seed2027.pt (seed 2027, val_EER 4.32%, fitur static) | device=mps ==
+serangan: ['A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A17', 'A18']
+unseen                 EER  20.66%  AUC 0.8718  F1 0.744  balAcc 0.784  min t-DCF 0.4706   (n=61,409)
+skor -> results/v2_validasi_terpisah/scores_unseen_abl_feat_static_seed2027.csv
+
+EER per serangan (tiap serangan melawan seluruh bona fide):
+  A07: EER   0.00%  (n_spoof=4,914)
+  A08: EER   0.00%  (n_spoof=4,914)
+  A09: EER   0.09%  (n_spoof=4,914)
+  A10: EER  25.58%  (n_spoof=4,914)
+  A11: EER   5.59%  (n_spoof=4,914)
+  A12: EER  34.67%  (n_spoof=4,914)
+  A13: EER  34.09%  (n_spoof=4,914)
+  A14: EER  24.39%  (n_spoof=4,914)
+  A15: EER  14.43%  (n_spoof=4,914)
+  A17: EER  38.75%  (n_spoof=4,914)
+  A18: EER  13.99%  (n_spoof=4,914)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'static': manifests/v2_validasi_terpisah/norm_stats_static.json
+== S4 Unseen generator lintas dataset (RM 1, 2) | abl_feat_static_seed2027.pt (seed 2027, val_EER 4.32%, fitur static) | device=mps ==
+in_the_wild            EER  72.42%  AUC 0.2547  F1 0.501  balAcc 0.453   (n=31,779)
+skor -> results/v2_validasi_terpisah/scores_in_the_wild_abl_feat_static_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+  CMVN khusus 'static': manifests/v2_validasi_terpisah/norm_stats_static.json
+== S4 Unseen generator lintas dataset (RM 1, 2) | abl_feat_static_seed2027.pt (seed 2027, val_EER 4.32%, fitur static) | device=mps ==
+wavefake_ljspeech      EER  34.39%  AUC 0.7199  F1 0.330  balAcc 0.580   (n=104,800)
+skor -> results/v2_validasi_terpisah/scores_wavefake_ljspeech_abl_feat_static_seed2027.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+INTI SELESAI

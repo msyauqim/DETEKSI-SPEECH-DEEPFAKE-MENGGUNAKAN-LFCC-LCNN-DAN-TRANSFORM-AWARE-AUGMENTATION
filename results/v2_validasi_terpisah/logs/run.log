@@ -1,0 +1,107 @@
+[10-21 23:41:41] === MULAI split latih A01,A02,A04,A06 / validasi A03,A05 / uji A07-A19 ===
+[10-21 23:41:41] MULAI  latih baseline_seed2026
+[10-22 01:05:06] SELESAI latih baseline_seed2026 -> SELESAI baseline_seed2026 | val_EER terbaik 6.62% @ epoch 10 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 01:05:06] EVAL   baseline_seed2026 S1 + S2 + S4
+[10-22 01:15:48] SELESAI eval inti baseline_seed2026
+[10-22 01:15:48] MULAI  latih augmented_seed2026
+[10-22 03:52:56] SELESAI latih augmented_seed2026 -> SELESAI augmented_seed2026 | val_EER terbaik 3.68% @ epoch 23 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 03:52:56] EVAL   augmented_seed2026 S1 + S2 + S4
+[10-22 04:03:28] SELESAI eval inti augmented_seed2026
+[10-22 04:03:28] MULAI  latih baseline_seed2027
+[10-22 05:12:30] SELESAI latih baseline_seed2027 -> SELESAI baseline_seed2027 | val_EER terbaik 7.25% @ epoch 6 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 05:12:30] EVAL   baseline_seed2027 S1 + S2 + S4
+[10-22 05:22:48] SELESAI eval inti baseline_seed2027
+[10-22 05:22:48] MULAI  latih augmented_seed2027
+[10-22 07:32:06] SELESAI latih augmented_seed2027 -> SELESAI augmented_seed2027 | val_EER terbaik 6.53% @ epoch 12 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 07:32:06] EVAL   augmented_seed2027 S1 + S2 + S4
+[10-22 07:45:47] SELESAI eval inti augmented_seed2027
+[10-22 07:45:47] MULAI  latih baseline_seed2028
+[10-22 10:39:24] SELESAI latih baseline_seed2028 -> SELESAI baseline_seed2028 | val_EER terbaik 6.88% @ epoch 5 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 10:39:24] EVAL   baseline_seed2028 S1 + S2 + S4
+[10-22 10:49:52] SELESAI eval inti baseline_seed2028
+[10-22 10:49:52] MULAI  latih augmented_seed2028
+[10-22 13:03:32] SELESAI latih augmented_seed2028 -> SELESAI augmented_seed2028 | val_EER terbaik 4.98% @ epoch 17 -> results/v2_validasi_terpisah/run_summary.csv
+[10-22 13:03:32] EVAL   augmented_seed2028 S1 + S2 + S4
+[10-22 13:15:50] SELESAI eval inti augmented_seed2028
+[10-22 13:15:50] EVAL   baseline_seed2026 S3 unseen + seen
+[10-22 14:53:37] SELESAI S3 baseline_seed2026
+[10-22 14:53:37] EVAL   augmented_seed2026 S3 unseen + seen
+[10-22 16:25:03] SELESAI S3 augmented_seed2026
+[10-22 16:25:03] EVAL   baseline_seed2027 S3 unseen + seen
+[10-22 17:55:25] SELESAI S3 baseline_seed2027
+[10-22 17:55:25] EVAL   augmented_seed2027 S3 unseen + seen
+[10-22 19:03:09] SELESAI S3 augmented_seed2027
+[10-22 19:03:09] EVAL   baseline_seed2028 S3 unseen + seen
+[10-22 20:11:50] SELESAI S3 baseline_seed2028
+[10-22 20:11:50] EVAL   augmented_seed2028 S3 unseen + seen
+[10-22 22:31:25] SELESAI S3 augmented_seed2028
+[10-22 22:31:25] MULAI  latih abl_noaug_noise_seed2026
+[10-23 00:07:57] SELESAI latih abl_noaug_noise_seed2026 -> SELESAI abl_noaug_noise_seed2026 | val_EER terbaik 2.51% @ epoch 12 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 00:07:57] EVAL   abl_noaug_noise_seed2026 S2
+[10-23 00:10:37] MULAI  latih abl_noaug_resample_seed2026
+[10-23 01:16:55] SELESAI latih abl_noaug_resample_seed2026 -> SELESAI abl_noaug_resample_seed2026 | val_EER terbaik 5.59% @ epoch 5 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 01:16:55] EVAL   abl_noaug_resample_seed2026 S2
+[10-23 01:19:35] MULAI  latih abl_noaug_lowpass_seed2026
+[10-23 02:58:03] SELESAI latih abl_noaug_lowpass_seed2026 -> SELESAI abl_noaug_lowpass_seed2026 | val_EER terbaik 4.79% @ epoch 12 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 02:58:03] EVAL   abl_noaug_lowpass_seed2026 S2
+[10-23 03:00:44] MULAI  latih abl_noaug_reverb_seed2026
+[10-23 04:36:49] SELESAI latih abl_noaug_reverb_seed2026 -> SELESAI abl_noaug_reverb_seed2026 | val_EER terbaik 7.30% @ epoch 12 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 04:36:49] EVAL   abl_noaug_reverb_seed2026 S2
+[10-23 04:39:30] MULAI  latih abl_noaug_gain_seed2026
+[10-23 06:22:52] SELESAI latih abl_noaug_gain_seed2026 -> SELESAI abl_noaug_gain_seed2026 | val_EER terbaik 3.77% @ epoch 13 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 06:22:52] EVAL   abl_noaug_gain_seed2026 S2
+[10-23 06:25:33] MULAI  latih abl_noaug_noise_seed2027
+[10-23 07:44:47] SELESAI latih abl_noaug_noise_seed2027 -> SELESAI abl_noaug_noise_seed2027 | val_EER terbaik 3.78% @ epoch 8 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 07:44:47] EVAL   abl_noaug_noise_seed2027 S2
+[10-23 07:47:26] MULAI  latih abl_noaug_resample_seed2027
+[10-23 09:37:34] SELESAI latih abl_noaug_resample_seed2027 -> SELESAI abl_noaug_resample_seed2027 | val_EER terbaik 5.18% @ epoch 15 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 09:37:34] EVAL   abl_noaug_resample_seed2027 S2
+[10-23 09:40:15] MULAI  latih abl_noaug_lowpass_seed2027
+[10-23 11:04:47] SELESAI latih abl_noaug_lowpass_seed2027 -> SELESAI abl_noaug_lowpass_seed2027 | val_EER terbaik 5.46% @ epoch 9 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 11:04:47] EVAL   abl_noaug_lowpass_seed2027 S2
+[10-23 11:07:28] MULAI  latih abl_noaug_reverb_seed2027
+[10-23 12:17:07] SELESAI latih abl_noaug_reverb_seed2027 -> SELESAI abl_noaug_reverb_seed2027 | val_EER terbaik 7.15% @ epoch 6 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 12:17:07] EVAL   abl_noaug_reverb_seed2027 S2
+[10-23 12:19:47] MULAI  latih abl_noaug_gain_seed2027
+[10-23 14:30:40] SELESAI latih abl_noaug_gain_seed2027 -> SELESAI abl_noaug_gain_seed2027 | val_EER terbaik 4.00% @ epoch 19 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 14:30:40] EVAL   abl_noaug_gain_seed2027 S2
+[10-23 14:33:18] MULAI  latih abl_noaug_noise_seed2028
+[10-23 15:39:33] SELESAI latih abl_noaug_noise_seed2028 -> SELESAI abl_noaug_noise_seed2028 | val_EER terbaik 2.13% @ epoch 5 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 15:39:33] EVAL   abl_noaug_noise_seed2028 S2
+[10-23 15:42:13] MULAI  latih abl_noaug_resample_seed2028
+[10-23 16:48:30] SELESAI latih abl_noaug_resample_seed2028 -> SELESAI abl_noaug_resample_seed2028 | val_EER terbaik 5.88% @ epoch 5 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 16:48:30] EVAL   abl_noaug_resample_seed2028 S2
+[10-23 16:51:10] MULAI  latih abl_noaug_lowpass_seed2028
+[10-23 18:55:50] SELESAI latih abl_noaug_lowpass_seed2028 -> SELESAI abl_noaug_lowpass_seed2028 | val_EER terbaik 4.08% @ epoch 18 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 18:55:50] EVAL   abl_noaug_lowpass_seed2028 S2
+[10-23 18:58:30] MULAI  latih abl_noaug_reverb_seed2028
+[10-23 21:26:42] SELESAI latih abl_noaug_reverb_seed2028 -> SELESAI abl_noaug_reverb_seed2028 | val_EER terbaik 3.84% @ epoch 18 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 21:26:42] EVAL   abl_noaug_reverb_seed2028 S2
+[10-23 21:29:23] MULAI  latih abl_noaug_gain_seed2028
+[10-23 22:54:40] SELESAI latih abl_noaug_gain_seed2028 -> SELESAI abl_noaug_gain_seed2028 | val_EER terbaik 3.61% @ epoch 9 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 22:54:40] EVAL   abl_noaug_gain_seed2028 S2
+[10-23 22:57:20] MULAI  latih abl_feat_delta_seed2026
+[10-23 23:56:55] SELESAI latih abl_feat_delta_seed2026 -> SELESAI abl_feat_delta_seed2026 | val_EER terbaik 4.81% @ epoch 11 -> results/v2_validasi_terpisah/run_summary.csv
+[10-23 23:56:55] EVAL   abl_feat_delta_seed2026 S1 + S2 + S4
+[10-24 00:05:38] SELESAI eval inti abl_feat_delta_seed2026
+[10-24 00:05:38] MULAI  latih abl_feat_static_seed2026
+[10-24 00:48:46] SELESAI latih abl_feat_static_seed2026 -> SELESAI abl_feat_static_seed2026 | val_EER terbaik 7.68% @ epoch 9 -> results/v2_validasi_terpisah/run_summary.csv
+[10-24 00:48:46] EVAL   abl_feat_static_seed2026 S1 + S2 + S4
+[10-24 00:56:48] SELESAI eval inti abl_feat_static_seed2026
+[10-24 00:56:48] MULAI  latih abl_feat_delta_seed2027
+[10-24 02:19:18] SELESAI latih abl_feat_delta_seed2027 -> SELESAI abl_feat_delta_seed2027 | val_EER terbaik 5.07% @ epoch 19 -> results/v2_validasi_terpisah/run_summary.csv
+[10-24 02:19:18] EVAL   abl_feat_delta_seed2027 S1 + S2 + S4
+[10-24 02:28:01] SELESAI eval inti abl_feat_delta_seed2027
+[10-24 02:28:01] MULAI  latih abl_feat_static_seed2027
+[10-24 03:26:56] SELESAI latih abl_feat_static_seed2027 -> SELESAI abl_feat_static_seed2027 | val_EER terbaik 4.32% @ epoch 16 -> results/v2_validasi_terpisah/run_summary.csv
+[10-24 03:26:56] EVAL   abl_feat_static_seed2027 S1 + S2 + S4
+[10-24 03:34:58] SELESAI eval inti abl_feat_static_seed2027
+[10-24 03:34:58] MULAI  latih abl_feat_delta_seed2028
+[10-24 04:26:12] SELESAI latih abl_feat_delta_seed2028 -> SELESAI abl_feat_delta_seed2028 | val_EER terbaik 7.33% @ epoch 8 -> results/v2_validasi_terpisah/run_summary.csv
+[10-24 04:26:12] EVAL   abl_feat_delta_seed2028 S1 + S2 + S4
+[10-24 04:34:56] SELESAI eval inti abl_feat_delta_seed2028
+[10-24 04:34:56] MULAI  latih abl_feat_static_seed2028
+[10-24 05:38:26] SELESAI latih abl_feat_static_seed2028 -> SELESAI abl_feat_static_seed2028 | val_EER terbaik 6.83% @ epoch 18 -> results/v2_validasi_terpisah/run_summary.csv
+[10-24 05:38:26] EVAL   abl_feat_static_seed2028 S1 + S2 + S4
+[10-24 05:46:28] SELESAI eval inti abl_feat_static_seed2028
+[10-24 05:46:28] === SELESAI SEMUA ===

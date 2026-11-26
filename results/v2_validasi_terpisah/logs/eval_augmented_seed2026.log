@@ -1,0 +1,79 @@
+== S1 Seen attack (RM 1) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+serangan: ['A16', 'A19']
+seen                   EER   1.30%  AUC 0.9992  F1 0.989  balAcc 0.987  min t-DCF 0.0409   (n=17,183)
+skor -> results/v2_validasi_terpisah/scores_seen_augmented_seed2026.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+== S2 Unseen attack dalam dataset yang sama (RM 1, 2) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+serangan: ['A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A17', 'A18']
+unseen                 EER   9.65%  AUC 0.9683  F1 0.897  balAcc 0.900  min t-DCF 0.2219   (n=61,409)
+skor -> results/v2_validasi_terpisah/scores_unseen_augmented_seed2026.csv
+
+EER per serangan (tiap serangan melawan seluruh bona fide):
+  A07: EER   0.04%  (n_spoof=4,914)
+  A08: EER   0.87%  (n_spoof=4,914)
+  A09: EER   0.27%  (n_spoof=4,914)
+  A10: EER   1.75%  (n_spoof=4,914)
+  A11: EER   2.71%  (n_spoof=4,914)
+  A12: EER   1.12%  (n_spoof=4,914)
+  A13: EER   0.95%  (n_spoof=4,914)
+  A14: EER   3.54%  (n_spoof=4,914)
+  A15: EER   2.89%  (n_spoof=4,914)
+  A17: EER  24.52%  (n_spoof=4,914)
+  A18: EER  22.58%  (n_spoof=4,914)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+== S4 Unseen generator lintas dataset (RM 1, 2) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+in_the_wild            EER  65.10%  AUC 0.2925  F1 0.501  balAcc 0.453   (n=31,779)
+skor -> results/v2_validasi_terpisah/scores_in_the_wild_augmented_seed2026.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+== S4 Unseen generator lintas dataset (RM 1, 2) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+wavefake_ljspeech      EER  45.60%  AUC 0.5575  F1 0.931  balAcc 0.500   (n=104,800)
+skor -> results/v2_validasi_terpisah/scores_wavefake_ljspeech_augmented_seed2026.csv
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+INTI SELESAI
+== S3 Stress-test transformasi (RM 3) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+serangan: unseen (['A07', 'A08', 'A09', 'A10', 'A11', 'A12', 'A13', 'A14', 'A15', 'A17', 'A18']) | transformasi: ['noise', 'resample', 'lowpass', 'reverb', 'gain']
+
+tanpa transformasi     EER   9.65%  AUC 0.9683  F1 0.897  balAcc 0.900  min t-DCF 0.2219   (n=61,409)
+noise L1 (20.0)        EER  16.38%  AUC 0.9144  F1 0.901  balAcc 0.836  min t-DCF 0.4412   (n=61,409)
+noise L2 (12.5)        EER  21.88%  AUC 0.8627  F1 0.839  balAcc 0.785  min t-DCF 0.5720   (n=61,409)
+noise L3 (5.0)         EER  25.72%  AUC 0.8202  F1 0.737  balAcc 0.742  min t-DCF 0.6488   (n=61,409)
+resample L1 (12000)    EER   9.73%  AUC 0.9665  F1 0.929  balAcc 0.909  min t-DCF 0.2301   (n=61,409)
+resample L2 (11025)    EER   9.88%  AUC 0.9653  F1 0.929  balAcc 0.907  min t-DCF 0.2294   (n=61,409)
+resample L3 (8000)     EER   9.92%  AUC 0.9649  F1 0.929  balAcc 0.907  min t-DCF 0.2312   (n=61,409)
+lowpass L1 (7000.0)    EER   9.87%  AUC 0.9641  F1 0.942  balAcc 0.901  min t-DCF 0.2246   (n=61,409)
+lowpass L2 (5200.0)    EER   9.67%  AUC 0.9663  F1 0.928  balAcc 0.910  min t-DCF 0.2183   (n=61,409)
+lowpass L3 (3400.0)    EER  10.03%  AUC 0.9645  F1 0.929  balAcc 0.906  min t-DCF 0.2290   (n=61,409)
+reverb L1 (0.15)       EER  11.56%  AUC 0.9534  F1 0.911  balAcc 0.898  min t-DCF 0.2475   (n=61,409)
+reverb L2 (0.4)        EER  11.18%  AUC 0.9564  F1 0.904  balAcc 0.898  min t-DCF 0.2439   (n=61,409)
+reverb L3 (0.7)        EER  11.45%  AUC 0.9541  F1 0.893  balAcc 0.891  min t-DCF 0.2543   (n=61,409)
+gain L1 (-2.0)         EER   9.87%  AUC 0.9671  F1 0.895  balAcc 0.898  min t-DCF 0.2220   (n=61,409)
+gain L2 (-4.0)         EER  10.34%  AUC 0.9647  F1 0.893  balAcc 0.896  min t-DCF 0.2262   (n=61,409)
+gain L3 (-6.0)         EER  11.04%  AUC 0.9609  F1 0.891  balAcc 0.894  min t-DCF 0.2365   (n=61,409)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+== S3 Stress-test transformasi (RM 3) | augmented_seed2026.pt (seed 2026, val_EER 3.68%, fitur delta2) | device=mps ==
+serangan: known_eval (['A16', 'A19']) | transformasi: ['noise', 'resample', 'lowpass', 'reverb', 'gain']
+
+tanpa transformasi     EER   1.30%  AUC 0.9992  F1 0.989  balAcc 0.987  min t-DCF 0.0409   (n=17,183)
+noise L1 (20.0)        EER  15.66%  AUC 0.9165  F1 0.860  balAcc 0.841  min t-DCF 0.4341   (n=17,183)
+noise L2 (12.5)        EER  19.88%  AUC 0.8822  F1 0.818  balAcc 0.805  min t-DCF 0.5370   (n=17,183)
+noise L3 (5.0)         EER  26.16%  AUC 0.8171  F1 0.679  balAcc 0.723  min t-DCF 0.6985   (n=17,183)
+resample L1 (12000)    EER  10.00%  AUC 0.9636  F1 0.894  balAcc 0.893  min t-DCF 0.2945   (n=17,183)
+resample L2 (11025)    EER  10.62%  AUC 0.9581  F1 0.888  balAcc 0.886  min t-DCF 0.3088   (n=17,183)
+resample L3 (8000)     EER  12.44%  AUC 0.9485  F1 0.860  balAcc 0.864  min t-DCF 0.3537   (n=17,183)
+lowpass L1 (7000.0)    EER   6.35%  AUC 0.9837  F1 0.945  balAcc 0.931  min t-DCF 0.1932   (n=17,183)
+lowpass L2 (5200.0)    EER   8.89%  AUC 0.9698  F1 0.905  balAcc 0.903  min t-DCF 0.2629   (n=17,183)
+lowpass L3 (3400.0)    EER  10.60%  AUC 0.9591  F1 0.890  balAcc 0.889  min t-DCF 0.3069   (n=17,183)
+reverb L1 (0.15)       EER   3.03%  AUC 0.9958  F1 0.972  balAcc 0.966  min t-DCF 0.0906   (n=17,183)
+reverb L2 (0.4)        EER   2.12%  AUC 0.9981  F1 0.981  balAcc 0.977  min t-DCF 0.0637   (n=17,183)
+reverb L3 (0.7)        EER   1.83%  AUC 0.9987  F1 0.984  balAcc 0.980  min t-DCF 0.0495   (n=17,183)
+gain L1 (-2.0)         EER   1.50%  AUC 0.9988  F1 0.987  balAcc 0.985  min t-DCF 0.0482   (n=17,183)
+gain L2 (-4.0)         EER   1.92%  AUC 0.9982  F1 0.981  balAcc 0.980  min t-DCF 0.0604   (n=17,183)
+gain L3 (-6.0)         EER   2.59%  AUC 0.9972  F1 0.974  balAcc 0.972  min t-DCF 0.0774   (n=17,183)
+
+ringkasan -> results/v2_validasi_terpisah/eval_summary.csv
+S3 SELESAI

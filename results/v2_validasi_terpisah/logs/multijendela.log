@@ -1,0 +1,51 @@
+[10-22 13:19:13] MULAI  v2_validasi_terpisah baseline_seed2026 in_the_wild
+[10-22 14:15:44] menunggu 6 model utama v2 selesai dievaluasi ...
+[10-22 14:15:44] MULAI  v2_validasi_terpisah baseline_seed2026 in_the_wild
+baseline_seed2026 | in_the_wild | multi-jendela EER 71.86% | AUC 0.255 | berkas > 1 jendela 20%
+[10-22 14:18:38] MULAI  v2_validasi_terpisah baseline_seed2026 wavefake_ljspeech
+baseline_seed2026 | wavefake_ljspeech | multi-jendela EER 27.78% | AUC 0.802 | berkas > 1 jendela 62%
+[10-22 14:34:05] MULAI  v2_validasi_terpisah augmented_seed2026 in_the_wild
+augmented_seed2026 | in_the_wild | multi-jendela EER 66.32% | AUC 0.281 | berkas > 1 jendela 20%
+[10-22 14:37:20] MULAI  v2_validasi_terpisah augmented_seed2026 wavefake_ljspeech
+augmented_seed2026 | wavefake_ljspeech | multi-jendela EER 45.23% | AUC 0.563 | berkas > 1 jendela 62%
+[10-22 14:51:36] MULAI  v2_validasi_terpisah baseline_seed2027 in_the_wild
+baseline_seed2027 | in_the_wild | multi-jendela EER 78.13% | AUC 0.168 | berkas > 1 jendela 20%
+[10-22 14:54:35] MULAI  v2_validasi_terpisah baseline_seed2027 wavefake_ljspeech
+baseline_seed2027 | wavefake_ljspeech | multi-jendela EER 23.03% | AUC 0.856 | berkas > 1 jendela 62%
+[10-22 15:09:00] MULAI  v2_validasi_terpisah augmented_seed2027 in_the_wild
+augmented_seed2027 | in_the_wild | multi-jendela EER 71.35% | AUC 0.227 | berkas > 1 jendela 20%
+[10-22 15:12:02] MULAI  v2_validasi_terpisah augmented_seed2027 wavefake_ljspeech
+augmented_seed2027 | wavefake_ljspeech | multi-jendela EER 34.42% | AUC 0.709 | berkas > 1 jendela 62%
+[10-22 15:26:44] MULAI  v2_validasi_terpisah baseline_seed2028 in_the_wild
+baseline_seed2028 | in_the_wild | multi-jendela EER 86.06% | AUC 0.083 | berkas > 1 jendela 20%
+[10-22 15:29:49] MULAI  v2_validasi_terpisah baseline_seed2028 wavefake_ljspeech
+baseline_seed2028 | wavefake_ljspeech | multi-jendela EER 18.61% | AUC 0.900 | berkas > 1 jendela 62%
+[10-22 15:44:20] MULAI  v2_validasi_terpisah augmented_seed2028 in_the_wild
+augmented_seed2028 | in_the_wild | multi-jendela EER 69.22% | AUC 0.258 | berkas > 1 jendela 20%
+[10-22 15:47:10] MULAI  v2_validasi_terpisah augmented_seed2028 wavefake_ljspeech
+augmented_seed2028 | wavefake_ljspeech | multi-jendela EER 50.14% | AUC 0.494 | berkas > 1 jendela 62%
+[10-22 16:01:57] MULAI  v1_pembagian_lama baseline_seed2026 in_the_wild
+baseline_seed2026 | in_the_wild | multi-jendela EER 79.55% | AUC 0.181 | berkas > 1 jendela 20%
+[10-22 16:05:03] MULAI  v1_pembagian_lama baseline_seed2026 wavefake_ljspeech
+baseline_seed2026 | wavefake_ljspeech | multi-jendela EER 20.16% | AUC 0.882 | berkas > 1 jendela 62%
+[10-22 16:19:42] MULAI  v1_pembagian_lama augmented_seed2026 in_the_wild
+augmented_seed2026 | in_the_wild | multi-jendela EER 63.24% | AUC 0.319 | berkas > 1 jendela 20%
+[10-22 16:22:35] MULAI  v1_pembagian_lama augmented_seed2026 wavefake_ljspeech
+augmented_seed2026 | wavefake_ljspeech | multi-jendela EER 52.24% | AUC 0.476 | berkas > 1 jendela 62%
+[10-22 16:37:35] MULAI  v1_pembagian_lama baseline_seed2027 in_the_wild
+baseline_seed2027 | in_the_wild | multi-jendela EER 78.92% | AUC 0.198 | berkas > 1 jendela 20%
+[10-22 16:40:52] MULAI  v1_pembagian_lama baseline_seed2027 wavefake_ljspeech
+baseline_seed2027 | wavefake_ljspeech | multi-jendela EER 20.27% | AUC 0.883 | berkas > 1 jendela 62%
+[10-22 16:56:05] MULAI  v1_pembagian_lama augmented_seed2027 in_the_wild
+augmented_seed2027 | in_the_wild | multi-jendela EER 64.15% | AUC 0.311 | berkas > 1 jendela 20%
+[10-22 16:59:16] MULAI  v1_pembagian_lama augmented_seed2027 wavefake_ljspeech
+augmented_seed2027 | wavefake_ljspeech | multi-jendela EER 45.32% | AUC 0.567 | berkas > 1 jendela 62%
+[10-22 17:13:43] MULAI  v1_pembagian_lama baseline_seed2028 in_the_wild
+baseline_seed2028 | in_the_wild | multi-jendela EER 69.93% | AUC 0.300 | berkas > 1 jendela 20%
+[10-22 17:16:32] MULAI  v1_pembagian_lama baseline_seed2028 wavefake_ljspeech
+baseline_seed2028 | wavefake_ljspeech | multi-jendela EER 28.07% | AUC 0.804 | berkas > 1 jendela 62%
+[10-22 17:30:42] MULAI  v1_pembagian_lama augmented_seed2028 in_the_wild
+augmented_seed2028 | in_the_wild | multi-jendela EER 64.67% | AUC 0.303 | berkas > 1 jendela 20%
+[10-22 17:33:57] MULAI  v1_pembagian_lama augmented_seed2028 wavefake_ljspeech
+augmented_seed2028 | wavefake_ljspeech | multi-jendela EER 52.44% | AUC 0.473 | berkas > 1 jendela 62%
+[10-22 17:49:06] === SELESAI MULTI-JENDELA ===

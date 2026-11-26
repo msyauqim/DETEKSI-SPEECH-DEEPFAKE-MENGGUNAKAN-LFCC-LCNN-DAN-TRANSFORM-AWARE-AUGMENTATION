@@ -1,0 +1,31 @@
+{
+ "dibekukan": "2026-10-21 16:06:40",
+ "pelatihan_v2_mulai": "2026-10-21 14:48:40",
+ "berkas": {
+  "latih_A01-A02-A04-A06.csv": {
+   "sha256": "67af90b3a004540b8e2454282bb17c344a3eef49b1b3a0fb8e7885ce0598e2a2",
+   "dibuat": "2026-10-21 14:37:54",
+   "catatan": "latih: bona fide + A01, A02, A04, A06 (partisi train)"
+  },
+  "validasi_A03-A05.csv": {
+   "sha256": "9e8b87d3f1e1f34c8418bb4303a8a8ef6642ef617dc0a682badd8b9500f4adbf",
+   "dibuat": "2026-10-21 14:37:54",
+   "catatan": "validasi: bona fide + A03, A05 (partisi dev); early stopping dan ambang"
+  },
+  "norm_stats.json": {
+   "sha256": "16133f9fa298711200a036013e153f240403f50ded4d6295b5e24a8ca8a4db8a",
+   "dibuat": "2026-10-21 14:38:00",
+   "catatan": "CMVN 180-D dari data latih v2"
+  },
+  "norm_stats_static.json": {
+   "sha256": "7ff7c197577b89c85e92bc740b286f6810a391815491a0458cafda8233e5a8c4",
+   "dibuat": "2026-10-21 15:03:46",
+   "catatan": "CMVN 60-D (irisan norm_stats.json) untuk ablation A1"
+  },
+  "norm_stats_delta.json": {
+   "sha256": "a9c96ff1df880d39d78ec7e4f212d8dce15db4ff058704e0e8b566638f8a7eb6",
+   "dibuat": "2026-10-21 15:03:46",
+   "catatan": "CMVN 120-D (irisan norm_stats.json) untuk ablation A2"
+  }
+ }
+}

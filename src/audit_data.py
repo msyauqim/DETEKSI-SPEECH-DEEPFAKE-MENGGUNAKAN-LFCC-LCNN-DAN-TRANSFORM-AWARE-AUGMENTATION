@@ -67,7 +67,7 @@ def audit_manifest(path, target_sr, min_sec, limit=None, quiet=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/baseline.yaml")
+    ap.add_argument("--config", default="configs/v2_validasi_terpisah.yaml")
     ap.add_argument("--manifest", default=None)
     ap.add_argument("--all", action="store_true", help="audit train, dev, dan eval")
     ap.add_argument("--min-sec", type=float, default=0.5)

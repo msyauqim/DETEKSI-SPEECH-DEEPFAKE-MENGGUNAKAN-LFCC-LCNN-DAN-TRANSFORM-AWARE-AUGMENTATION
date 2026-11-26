@@ -6,28 +6,35 @@ seberapa jauh kinerjanya bertahan pada generator sintesis suara yang **tidak per
 dilihat saat pelatihan** (*unseen generator*), serta apakah augmentasi sadar-transformasi
 (*transform-aware augmentation*) membantu ketahanan tersebut.
 
-## Hasil utama (rerata ± simpangan baku, 3 seed)
+Pembagian data ASVspoof 2019 LA: latih A01, A02, A04, A06; validasi A03, A05;
+uji A07–A19. Seluruh model dilatih pada tiga seed (2026, 2027, 2028).
 
-| Skema | Kondisi | EER |
-|---|---|---:|
-| baseline (clean-only) | seen (A16, A19) | 0,11% ± 0,06 |
-| baseline (clean-only) | **unseen** (A07–A18) | 18,13% ± 1,42 |
-| augmented | seen (A16, A19) | 1,46% ± 0,22 |
-| augmented | **unseen** (A07–A18) | **8,48% ± 1,02** |
+## Hasil utama (EER, rerata ± simpangan baku 3 seed)
 
-Augmentasi menurunkan EER pada serangan *unseen* lebih dari separuh, dengan
-penurunan kinerja *matched* yang kecil. Rincian lengkap (S1–S4, *stress-test*,
-per-serangan) ada di `results/tabel_hasil.csv`.
+| Kondisi uji | Clean-only | Augmented |
+|---|---:|---:|
+| S1 seen (A16, A19) | 0,08% ± 0,03 | 1,35% ± 0,23 |
+| S2 **unseen** (A07–A15, A17, A18) | 20,42% ± 2,38 | **10,22% ± 1,06** |
+| S4 WaveFake (7 vokoder LJSpeech) | 23,73% ± 4,52 | 43,69% ± 7,41 |
+| S4 In-the-Wild | 77,70% ± 7,11 | 68,30% ± 3,01 |
+
+Augmentasi menurunkan EER pada serangan *unseen* sekitar separuhnya, dengan kenaikan
+EER *seen* yang kecil. Manfaat ini tidak terbawa ke dataset lain: pada WaveFake EER justru
+naik, dan pada In-the-Wild kedua skema tetap di atas 50%. Rincian per skenario ada di
+`results/v2_validasi_terpisah/eval_summary.csv`.
 
 ## Struktur proyek
 
 ```
-src/            kode sumber (ekstraksi fitur, model, augmentasi, training, evaluasi)
-configs/        konfigurasi eksperimen (parameter tunggal, tidak tersebar di kode)
-manifests/      daftar berkas dataset + label (path relatif, tidak berisi audio)
-checkpoints/    model terlatih (.pt)
-results/        skor, ringkasan metrik, log, bukti lingkungan komputasi
-data/           dataset mentah -- TIDAK disertakan di repo (lihat di bawah)
+src/                               kode sumber (fitur, model, augmentasi, pelatihan, evaluasi)
+configs/v2_validasi_terpisah.yaml  seluruh parameter eksperimen
+manifests/                         daftar berkas dataset + label (tanpa audio)
+manifests/v2_validasi_terpisah/    manifest latih/validasi dan statistik CMVN yang dibekukan
+checkpoints/v2_validasi_terpisah/  27 model terlatih (.pt)
+results/v2_validasi_terpisah/      ringkasan metrik dan log
+results/figures/v2/                grafik naskah
+results/audit/                     audit integritas data
+data/                              dataset mentah -- TIDAK disertakan (lihat di bawah)
 ```
 
 ## Dataset
@@ -38,14 +45,16 @@ Dataset **tidak disertakan** di repo ini (±96 GB, berlisensi riset). Unduh send
 - [WaveFake](https://zenodo.org/records/5642694) -> `data/raw/wavefake/`
 - [In-the-Wild](https://deepfake-total.com/in_the_wild) -> `data/raw/in_the_wild/`
 
-Setelah dataset tersedia, susun manifest:
+Setelah dataset tersedia, susun dan periksa manifest:
 
 ```bash
 python src/build_manifests_all.py
 python src/make_attack_split.py
 python src/build_external_manifests.py --itw --wavefake
+python src/build_wavefake_ljspeech.py
 python src/audit_data.py --all
-python src/compute_norm_stats.py --max-files 8000
+python src/dedup_sha256.py
+python src/buat_manifest_v2.py --out /tmp/cek_manifest   # cocokkan dengan freeze.json
 ```
 
 ## Setup
@@ -62,27 +71,30 @@ lewat `src/device.py`.
 ## Menjalankan eksperimen
 
 ```bash
-# baseline & augmented, 3 seed
-python src/train.py --seed 2026
-python src/train.py --augment --seed 2026
-# ...ulangi untuk seed 2027, 2028 (lihat run_all.sh untuk versi otomatis)
+# 27 proses pelatihan (6 model utama + 21 ablation) beserta evaluasi S1-S4;
+# aman dijeda-lanjut (melewati proses yang sudah selesai)
+bash run_v2_validasi_terpisah.sh
 
-# evaluasi 4 skenario (S1 seen, S2 unseen, S3 stress-test, S4 lintas dataset)
-python src/evaluate.py --checkpoint checkpoints/baseline_seed2026.pt --scenario S1
-python src/evaluate.py --checkpoint checkpoints/baseline_seed2026.pt --scenario S2 --per-attack
-python src/evaluate.py --checkpoint checkpoints/baseline_seed2026.pt --scenario S3
-python src/evaluate.py --checkpoint checkpoints/baseline_seed2026.pt --scenario S4 \
-       --manifest manifests/in_the_wild.csv --condition in_the_wild
+# analisis tambahan skor multi-jendela pada dataset eksternal
+bash run_multijendela.sh
 
-# ringkasan akhir (rerata ± simpangan baku 3 seed)
-python src/aggregate_results.py
+# grafik naskah
+python src/grafik_skripsi_v2.py
 ```
 
-Skrip `run_all.sh`, `run_ablation.sh`, dan `run_eval_all.sh` menjalankan seluruh
-kombinasi di atas secara otomatis dan aman dijeda-lanjut (melewati proses yang
-checkpoint-nya sudah ada).
+Contoh satu proses secara manual:
 
-## Konfigurasi
+```bash
+python src/train.py --config configs/v2_validasi_terpisah.yaml --augment --seed 2026
+python src/evaluate.py --checkpoint checkpoints/v2_validasi_terpisah/augmented_seed2026.pt \
+       --scenario S2 --per-attack
+```
 
-Semua parameter (LFCC, arsitektur LCNN, augmentasi, hiperparameter training)
-ada di `configs/baseline.yaml` -- tidak ada nilai tersembunyi di kode.
+## Demo
+
+```bash
+python src/web_demo.py                      # antarmuka web lokal, http://127.0.0.1:7860
+python src/nilai_rekaman.py rekaman.wav     # menilai satu berkas audio
+```
+
+Demo hanya ilustrasi; hasil pada rekaman di luar dataset bukan pengukuran kinerja.
